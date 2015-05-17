@@ -12,10 +12,10 @@
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-	<context:component-scan base-package="org.proffart.carpool.controller" />
-    <!--<context:component-scan base-package="org.proffart.carpool.controller.social" />-->
-	<context:component-scan base-package="org.proffart.carpool.service" />
-	<context:component-scan base-package="org.proffart.carpool.dao" />
+	<context:component-scan base-package="org.proffart.babyroom.controller" />
+    <!--<context:component-scan base-package="org.proffart.babyroomm.controller.social" />-->
+	<context:component-scan base-package="org.proffart.babyroom.service" />
+	<context:component-scan base-package="org.proffart.babyroom.dao" />
 	<context:property-placeholder location="WEB-INF/jdbc.properties" />
 
 
@@ -52,12 +52,12 @@
     </bean>
 
     <bean id="userDAO"
-          class="org.proffart.carpool.dao.UserDAOImpl">
+          class="org.proffart.babyroom.dao.UserDAOImpl">
         <property name="sqlMapClient" ref="sqlMap" />
     </bean>
 
     <bean id="rideDAO"
-          class="org.proffart.carpool.dao.RideDAOImpl">
+          class="org.proffart.babyroom.dao.RideDAOImpl">
         <property name="sqlMapClient" ref="sqlMap" />
     </bean>
 
