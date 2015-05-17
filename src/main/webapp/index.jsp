@@ -13,6 +13,7 @@
   <!--append ‘#!watch’ to the browser URL, then refresh the page. -->
   
   <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+
   <link href="/resources/css/font-awesome.min.css" rel="stylesheet">
   <link href="/resources/css/scrolling-nav.css" rel="stylesheet">
   <link href="/resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
