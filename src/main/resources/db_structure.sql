@@ -1,3 +1,19 @@
+DROP TABLE IF EXISTS messages;
+DROP TABLE IF EXISTS files;
+DROP TABLE IF EXISTS likes;
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS actions;
+DROP TABLE IF EXISTS doctors;
+DROP TABLE IF EXISTS nanny;
+DROP TABLE IF EXISTS children;
+DROP TABLE IF EXISTS parents;
+DROP TABLE IF EXISTS city;
+DROP TABLE IF EXISTS country;
+DROP TABLE IF EXISTS users;
+
+
+
 CREATE TABLE `users` (
   `usersId` INT(11) NOT NULL AUTO_INCREMENT,
   `login` CHAR(50) NOT NULL,
@@ -39,8 +55,7 @@ CREATE TABLE `parents` (
   CONSTRAINT `fk_parents_users`
   FOREIGN KEY (`parentId`)
   REFERENCES `users` (`usersId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `children` (
@@ -52,8 +67,7 @@ CREATE TABLE `children` (
   CONSTRAINT `fk_children_users`
   FOREIGN KEY (`childrenId`)
   REFERENCES `users` (`usersId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `nanny` (
@@ -63,8 +77,7 @@ CREATE TABLE `nanny` (
   CONSTRAINT `fk_nanny_users`
   FOREIGN KEY (`nannyId`)
   REFERENCES `users` (`usersId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE `doctors` (
@@ -74,8 +87,99 @@ CREATE TABLE `doctors` (
   CONSTRAINT `fk_doctor_users`
   FOREIGN KEY (`doctorId`)
   REFERENCES `users` (`usersId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE `actions` (
+  `actionId` INT(11) NOT NULL AUTO_INCREMENT,
+  `createDate` DATETIME NOT NULL,
+  `userId` INT(11) NOT NULL,
+  `type` ENUM('POST', 'COMMENT', 'LIKE'),
+  PRIMARY KEY (`actionId`),
+  UNIQUE INDEX `actionId_UNIQUE` (`actionId` ASC),
+  CONSTRAINT `fk_actions_users`
+  FOREIGN KEY (`userId`)
+  REFERENCES `users` (`usersId`)
+    ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE `posts` (
+  `postId` INT(11) NOT NULL,
+  `content` TEXT NOT NULL,
+  `type` ENUM('TEXT', 'IMAGE', 'VIDEO', 'SOUND', 'ALBUM'),
+  `status` ENUM('ACTIVE', 'BLOCKED', 'DELETED') NOT NULL,
+  PRIMARY KEY (`postId`),
+  UNIQUE INDEX `postId_UNIQUE` (`postId` ASC),
+  CONSTRAINT `fk_action_post`
+  FOREIGN KEY (`postId`)
+  REFERENCES `actions` (`actionId`)
+    ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE `comments` (
+  `commentId` INT(11) NOT NULL,
+  `actionId` INT(11) NOT NULL,
+  `content` TEXT NOT NULL,
+  PRIMARY KEY (`commentId`, `actionId`),
+  UNIQUE INDEX `commentId_UNIQUE` (`commentId` ASC),
+  UNIQUE INDEX `actionId_UNIQUE` (`actionId` ASC),
+  CONSTRAINT `fk_action_comment`
+  FOREIGN KEY (`commentId`)
+  REFERENCES `actions` (`actionId`)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_comments_actions`
+  FOREIGN KEY (`actionId`)
+  REFERENCES `actions` (`actionId`)
+    ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE `likes` (
+  `likeId` INT(11) NOT NULL,
+  `actionId` INT(11) NOT NULL,
+  PRIMARY KEY (`likeId`, `actionId`),
+  UNIQUE INDEX `likeId_UNIQUE` (`likeId` ASC),
+  UNIQUE INDEX `actionId_UNIQUE` (`actionId` ASC),
+  CONSTRAINT `fk_action_like`
+  FOREIGN KEY (`likeId`)
+  REFERENCES `actions` (`actionId`)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_likes_actions`
+  FOREIGN KEY (`actionId`)
+  REFERENCES `actions` (`actionId`)
+    ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE `files` (
+  `fileId` INT(11) NOT NULL,
+  `type` ENUM('IMAGE', 'VIDEO', 'SOUND', 'DOC') NOT NULL,
+  `mimeType` CHAR(30) NOT NULL,
+  `name` VARCHAR(150) NOT NULL,
+  `systemName` CHAR(15) NOT NULL,
+  `path` VARCHAR(255) NOT NULL,
+  `externalURl` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`fileId`),
+  UNIQUE INDEX `fileId_UNIQUE` (`fileId` ASC),
+  CONSTRAINT `fk_action_file`
+  FOREIGN KEY (`fileId`)
+  REFERENCES `actions` (`actionId`)
+    ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE `messages` (
+  `messageId` INT(11) NOT NULL,
+  `date` DATE NOT NULL,
+  `time` TIME NOT NULL,
+  `from` INT(11) NOT NULL,
+  `to` INT(11) NOT NULL,
+  `message` TEXT NOT NULL,
+  PRIMARY KEY (`messageId`),
+  CONSTRAINT `fk_message_form_users`
+  FOREIGN KEY (`from`)
+  REFERENCES `users` (`usersId`)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_message_to_users`
+  FOREIGN KEY (`to`)
+  REFERENCES `users` (`usersId`)
+    ON DELETE CASCADE ON UPDATE CASCADE
+);
 
