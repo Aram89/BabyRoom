@@ -130,6 +130,9 @@
 
 <script src="/resources/js/functions.js"></script>
 
+<%@include file="widgets/angular-includes.jsp"%>
+
+
 </body>
 
 </html>

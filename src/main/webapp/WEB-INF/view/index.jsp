@@ -541,6 +541,7 @@
 <script src="/resources/js/functions.js"></script>
 <script src="/resources/js/demo.js"></script>
 
+<%@include file="widgets/angular-includes.jsp"%>
 
 </body>
 
