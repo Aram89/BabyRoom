@@ -9,14 +9,14 @@
   <meta name="author" content="">
 
   <!-- Vendor CSS -->
-  <link href="resources/vendors/animate-css/animate.min.css" rel="stylesheet">
-  <link href="resources/vendors/sweet-alert/sweet-alert.min.css" rel="stylesheet">
-  <link href="resources/vendors/material-icons/material-design-iconic-font.min.css" rel="stylesheet">
-  <link href="resources/vendors/socicon/socicon.min.css" rel="stylesheet">
+  <link href="/resources/vendors/animate-css/animate.min.css" rel="stylesheet">
+  <link href="/resources/vendors/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+  <link href="/resources/vendors/material-icons/material-design-iconic-font.min.css" rel="stylesheet">
+  <link href="/resources/vendors/socicon/socicon.min.css" rel="stylesheet">
 
   <!-- CSS -->
-  <link href="resources/css/app.min.1.css" rel="stylesheet">
-  <link href="resources/css/app.min.2.css" rel="stylesheet">
+  <link href="/resources/css/app.min.1.css" rel="stylesheet">
+  <link href="/resources/css/app.min.2.css" rel="stylesheet">
 </head>
 
 <body class="login-content">
@@ -124,12 +124,12 @@
 <%@include file="widgets/old-browser.jsp" %>
 
 <!-- Javascript Libraries -->
-<script src="resources/js/jquery-2.1.1.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
+<script src="/resources/js/jquery-2.1.1.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
 
-<script src="resources/vendors/waves/waves.min.js"></script>
+<script src="/resources/vendors/waves/waves.min.js"></script>
 
-<script src="resources/js/functions.js"></script>
+<script src="/resources/js/functions.js"></script>
 
 </body>
 
