@@ -18,7 +18,7 @@
   <link href="/resources/css/app.min.2.css" rel="stylesheet">
 </head>
 
-<body class="login-content">
+<body class="login-content" ng-app="app" ng-controller="loginController">
 <!-- Login -->
 <div class="lc-block toggled" id="l-login">
   <div class="input-group m-b-20">

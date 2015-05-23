@@ -21,7 +21,7 @@
   <link href="/resources/css/style.css" rel="stylesheet">
 
 </head>
-<body>
+<body ng-app="app" ng-controller="indexController">
 <header id="header">
   <ul class="header-inner">
 
