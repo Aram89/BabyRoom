@@ -3,29 +3,6 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>BabyRoom</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BabyRoom">
-  <meta name="author" content="">
-
-  <!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
-  <!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
-  <!--script src="js/less-1.3.3.min.js"></script-->
-  <!--append ‘#!watch’ to the browser URL, then refresh the page. -->
-
-  <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="/resources/css/font-awesome.min.css" rel="stylesheet">
-  <link href="/resources/css/scrolling-nav.css" rel="stylesheet">
-  <link href="/resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-  <link href="/resources/css/style.css" rel="stylesheet">
-
-
-
-  <!DOCTYPE html>
-
-<head>
-  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Baby Room</title>
@@ -41,6 +18,7 @@
   <link href="/resources/css/app.min.1.css" rel="stylesheet">
   <link href="/resources/css/app.min.2.css" rel="stylesheet">
   <link href="/resources/css/tab.css" rel="stylesheet">
+  <link href="/resources/css/style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -48,7 +26,7 @@
   <ul class="header-inner">
 
     <li class="logo hidden-xs">
-      <a href="index.html">Baby Room</a>
+      <a href="/">Baby Room</a>
     </li>
 
   </ul>

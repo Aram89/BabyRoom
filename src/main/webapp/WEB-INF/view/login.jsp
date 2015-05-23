@@ -3,10 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>BabyRoom Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BabyRoom">
-  <meta name="author" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baby Room</title>
 
   <!-- Vendor CSS -->
   <link href="/resources/vendors/animate-css/animate.min.css" rel="stylesheet">
