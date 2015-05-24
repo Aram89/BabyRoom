@@ -21,7 +21,7 @@
   <link href="/resources/css/style.css" rel="stylesheet">
 
 </head>
-<body ng-app="app" ng-controller="indexController">
+<body ng-app="app" >
 <header id="header">
   <ul class="header-inner">
 
@@ -549,8 +549,6 @@
 <script src="/resources/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
 <script src="/resources/vendors/sweet-alert/sweet-alert.min.js"></script>
 
-<script src="/resources/js/functions.js"></script>
-<script src="/resources/js/demo.js"></script>
 
 <%@include file="widgets/angular-includes.jsp"%>
 

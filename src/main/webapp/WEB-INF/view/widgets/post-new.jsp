@@ -27,16 +27,16 @@
 
   <div class="clearfix"></div>
 
-  <div class="pn-body" ng-class="{pn-body-normal : isToggled}">
-    <div id="add-pn-item" ng-class="{toggled : isToggled}" ng-click="toggle()">
-      <i class="add-new-item md md-add"></i>
+  <div class="pn-body" ng-class="{ 'pn-body-normal' : opened}">
+    <div id="add-pn-item" ng-class="{'toggled' : opened}" >
+      <i class="add-new-item md md-add" ng-click="open()"></i>
 
       <div class="add-pn-body">
         <textarea placeholder="What's on your mind..."></textarea>
 
         <div class="add-pn-actions">
-          <a href="#" data-pn-action="dismiss"><i class="md md-close"></i></a>
-          <a href="#" data-pn-action="save"><i class="md md-check"></i></a>
+          <a class="pn-action-dismiss" ng-click="dismiss()"><i class="md md-close"></i></a>
+          <a class="pn-action-save"    ng-click="save()"><i class="md md-check"></i></a>
         </div>
       </div>
     </div>

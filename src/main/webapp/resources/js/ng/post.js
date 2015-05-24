@@ -1,12 +1,18 @@
 
 app.controller('newPostController', ['$scope', function($scope){
 
-    console.log('newPostController');
+    $scope.opened = false;
 
-    $scope.isToggled = false;
+    $scope.open = function() {
+        $scope.opened = true;
+    };
 
-    $scope.toggle = function() {
-        console.info('click');
+    $scope.dismiss = function() {
+        $scope.opened = false;
+    };
+
+    $scope.save = function() {
+        $scope.opened = false;
     };
 
 
