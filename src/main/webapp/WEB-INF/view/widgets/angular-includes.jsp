@@ -5,3 +5,4 @@
 
 <!-- controllers -->
 <script src="/resources/js/ng/login.js"></script>
+<script src="/resources/js/ng/post.js"></script>

@@ -34,9 +34,9 @@
     <div class="clearfix"></div>
 
     <ul class="tvb-stats">
-      <li class="tvbs-comments" ng-show="data.statistics.comments > 0">{{data.statistics.comments}} Comments</li>
-      <li class="tvbs-likes"    ng-show="data.statistics.likes > 0">{{data.statistics.likes}} Likes</li>
-      <li class="tvbs-views"    ng-show="data.statistics.views > 0">{{data.statistics.views}} Views</li>
+      <li class="tvbs-comments" ng-show="data.statistics.comments > 0"><i class="md md-comment"></i> {{data.statistics.comments}} Comments</li>
+      <li class="tvbs-likes"    ng-show="data.statistics.likes > 0"><i class="md md-thumb-up"></i> {{data.statistics.likes}} Likes</li>
+      <li class="tvbs-views"    ng-show="data.statistics.views > 0"><i class="md md-remove-red-eye"></i> {{data.statistics.views}} Views</li>
     </ul>
 
     <a class="tvc-more" href="#" ng-show="data.statistics.comments > 5"><i class="md md-mode-comment"></i> View all {{data.statistics.comments}} Comments</a>

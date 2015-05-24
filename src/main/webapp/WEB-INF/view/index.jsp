@@ -118,7 +118,12 @@
 
 
 
+
+
+
       <div class="card c-timeline">
+
+
         <div class="clearfix">
           <ul tabindex="1" style="overflow: hidden;" class="tab-nav tn-justified">
             <li class="waves-effect"><a href="index.html">About</a></li>
@@ -128,11 +133,17 @@
           </ul>
 
 
+
+
+          <%@ include file="widgets/post-new.jsp"%>
+
           <div class="timeline">
+
+
             <div class="t-view" data-tv-type="text">
               <div class="tv-header media">
                 <a href="#" class="tvh-user pull-left">
-                  <img class="img-responsive" src="/resources//resources/img/profile-pics/profile-pic-2.jpg" alt="">
+                  <img class="img-responsive" src="/resources/img/profile-pics/profile-pic-2.jpg" alt="">
                 </a>
                 <div class="media-body p-t-5">
                   <strong class="d-block">Malinda Hollaway</strong>
@@ -176,7 +187,7 @@
                 <ul class="tvc-lists">
                   <li class="media">
                     <a href="#" class="tvh-user pull-left">
-                      <img class="img-responsive" src="/resources//resources/img/profile-pics/1.jpg" alt="">
+                      <img class="img-responsive" src="/resources/img/profile-pics/1.jpg" alt="">
                     </a>
                     <div class="media-body">
                       <strong class="d-block">David Peiterson</strong>
@@ -189,7 +200,7 @@
 
                   <li class="media">
                     <a href="#" class="tvh-user pull-left">
-                      <img class="img-responsive" src="/resources//resources/img/profile-pics/2.jpg" alt="">
+                      <img class="img-responsive" src="/resources/img/profile-pics/2.jpg" alt="">
                     </a>
                     <div class="media-body">
                       <strong class="d-block">Wernall Parnell</strong>
@@ -202,7 +213,7 @@
 
                   <li class="media">
                     <a href="#" class="tvh-user pull-left">
-                      <img class="img-responsive" src="/resources//resources/img/profile-pics/3.jpg" alt="">
+                      <img class="img-responsive" src="/resources/img/profile-pics/3.jpg" alt="">
                     </a>
                     <div class="media-body">
                       <strong class="d-block">Shane Lee Yong</strong>
@@ -226,7 +237,7 @@
             <div class="t-view" data-tv-type="image">
               <div class="tv-header media">
                 <a href="#" class="tvh-user pull-left">
-                  <img class="img-responsive" src="/resources//resources/img/profile-pics/profile-pic-2.jpg" alt="">
+                  <img class="img-responsive" src="/resources/img/profile-pics/profile-pic-2.jpg" alt="">
                 </a>
                 <div class="media-body p-t-5">
                   <strong class="d-block">Malinda Hollaway</strong>
@@ -253,9 +264,9 @@
               <div class="tv-body">
 
                 <div class="lightbox m-b-20">
-                  <div data-src="/resources//resources/img/headers/sm/4.png">
+                  <div data-src="/resources/img/headers/sm/4.png">
                     <div class="lightbox-item pull-left">
-                      <img src="/resources//resources/img/headers/sm/4.png" alt="">
+                      <img src="/resources/img/headers/sm/4.png" alt="">
                     </div>
                   </div>
                 </div>
@@ -277,7 +288,7 @@
                 <ul class="tvc-lists">
                   <li class="media">
                     <a href="#" class="tvh-user pull-left">
-                      <img class="img-responsive" src="/resources//resources/img/profile-pics/1.jpg" alt="">
+                      <img class="img-responsive" src="/resources/img/profile-pics/1.jpg" alt="">
                     </a>
                     <div class="media-body">
                       <strong class="d-block">Jolla Hatkin</strong>
@@ -290,7 +301,7 @@
 
                   <li class="media">
                     <a href="#" class="tvh-user pull-left">
-                      <img class="img-responsive" src="/resources//resources/img/profile-pics/2.jpg" alt="">
+                      <img class="img-responsive" src="/resources/img/profile-pics/2.jpg" alt="">
                     </a>
                     <div class="media-body">
                       <strong class="d-block">David Simpson</strong>
@@ -314,7 +325,7 @@
             <div class="t-view" data-tv-type="video">
               <div class="tv-header media">
                 <a href="#" class="tvh-user pull-left">
-                  <img class="img-responsive" src="/resources//resources/img/profile-pics/profile-pic-2.jpg" alt="">
+                  <img class="img-responsive" src="/resources/img/profile-pics/profile-pic-2.jpg" alt="">
                 </a>
                 <div class="media-body p-t-5">
                   <strong class="d-block">Malinda Hollaway</strong>
@@ -361,7 +372,7 @@
                 <ul class="tvc-lists">
                   <li class="media">
                     <a href="#" class="tvh-user pull-left">
-                      <img class="img-responsive" src="/resources//resources/img/profile-pics/6.jpg" alt="">
+                      <img class="img-responsive" src="/resources/img/profile-pics/6.jpg" alt="">
                     </a>
                     <div class="media-body">
                       <strong class="d-block">Jolla Hatkin</strong>
@@ -374,7 +385,7 @@
 
                   <li class="media">
                     <a href="#" class="tvh-user pull-left">
-                      <img class="img-responsive" src="/resources//resources/img/profile-pics/5.jpg" alt="">
+                      <img class="img-responsive" src="/resources/img/profile-pics/5.jpg" alt="">
                     </a>
                     <div class="media-body">
                       <strong class="d-block">Sean Paul Jr.</strong>
@@ -398,7 +409,7 @@
             <div class="t-view" data-tv-type="image">
               <div class="tv-header media">
                 <a href="#" class="tvh-user pull-left">
-                  <img class="img-responsive" src="/resources//resources/img/profile-pics/profile-pic-2.jpg" alt="">
+                  <img class="img-responsive" src="/resources/img/profile-pics/profile-pic-2.jpg" alt="">
                 </a>
                 <div class="media-body p-t-5">
                   <strong class="d-block">Malinda Hollaway</strong>
@@ -467,7 +478,7 @@
                 <ul class="tvc-lists">
                   <li class="media">
                     <a href="#" class="tvh-user pull-left">
-                      <img class="img-responsive" src="/resources//resources/img/profile-pics/6.jpg" alt="">
+                      <img class="img-responsive" src="/resources/img/profile-pics/6.jpg" alt="">
                     </a>
                     <div class="media-body">
                       <strong class="d-block">Jolla Hatkin</strong>
@@ -480,7 +491,7 @@
 
                   <li class="media">
                     <a href="#" class="tvh-user pull-left">
-                      <img class="img-responsive" src="/resources//resources/img/profile-pics/5.jpg" alt="">
+                      <img class="img-responsive" src="/resources/img/profile-pics/5.jpg" alt="">
                     </a>
                     <div class="media-body">
                       <strong class="d-block">Marwell Wecker</strong>
@@ -546,3 +557,5 @@
 </body>
 
 </html>
+
+
