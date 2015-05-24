@@ -9,4 +9,5 @@ import java.sql.SQLException;
  */
 public interface UserDAO {
     public void insert(User user) throws SQLException;
+    public Integer getCount (String email) throws SQLException;
 }

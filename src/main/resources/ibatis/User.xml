@@ -5,17 +5,23 @@
     <typeAlias alias="user" type="org.proffart.babyroom.domain.User" />
 
     <resultMap id="result" class="user">
-        <result property="login" column="login"/>
-        <result property="firstName" column="firstName"/>
-        <result property="lastName" column="lastName"/>
+        <result property="email" column="email"/>
+        <result property="passwordSalt" column="passwordSalt"/>
+        <result property="passwordHash" column="passwordHash"/>
     </resultMap>
     <insert id="insert" parameterClass="user">
-        INSERT INTO users(login,firstName,lastName)
-        values (#login#,#firstName#,#lastName#)
+        INSERT INTO users(email,passwordSalt,passwordHash)
+        values (#email#,#passwordSalt#,#passwordHash#)
 
         <selectKey resultClass="int" keyProperty="id">
             select last_insert_id() as id
         </selectKey>
     </insert>
+
+    <select id="checkEmail" resultClass="int" parameterClass="String">
+        SELECT COUNT(*) FROM users
+        where email = #email#
+    </select>
+
 
 </sqlMap>
