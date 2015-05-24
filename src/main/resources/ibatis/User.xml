@@ -2,14 +2,13 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="user">
-    <typeAlias alias="user" type="org.proffart.carpool.domain.User" />
+    <typeAlias alias="user" type="org.proffart.babyroom.domain.User" />
 
     <resultMap id="result" class="user">
         <result property="id" column="id"/>
         <result property="login" column="login"/>
         <result property="firstName" column="firstName"/>
         <result property="lastName" column="lastName"/>
-
     </resultMap>
 
 
@@ -21,9 +20,5 @@
             select last_insert_id() as id
         </selectKey>
     </insert>
-
-
-
-
 
 </sqlMap>
