@@ -18,41 +18,40 @@
   <link href="/resources/css/app.min.2.css" rel="stylesheet">
 </head>
 
-<body class="login-content" ng-app="app" ng-controller="loginController">
+<body class="login-content" ng-app="app">
 <!-- Login -->
-<div class="lc-block toggled" id="l-login">
-  <div class="input-group m-b-20">
-    <span class="input-group-addon"><i class="md md-person"></i></span>
-
-    <div class="fg-line">
-      <input type="text" class="form-control" placeholder="Username">
+<div class="lc-block toggled" id="l-login" ng-controller="loginController">
+  <form>
+    <div class="input-group m-b-20">
+      <span class="input-group-addon"><i class="md md-person"></i></span>
+      <div class="fg-line">
+        <input type="text" class="form-control" placeholder="Username">
+      </div>
     </div>
-  </div>
 
-  <div class="input-group m-b-20">
-    <span class="input-group-addon"><i class="md md-accessibility"></i></span>
+    <div class="input-group m-b-20">
+      <span class="input-group-addon"><i class="md md-accessibility"></i></span>
 
-    <div class="fg-line">
-      <input type="password" class="form-control" placeholder="Password">
+      <div class="fg-line">
+        <input type="password" class="form-control" placeholder="Password">
+      </div>
     </div>
-  </div>
 
-  <div class="clearfix"></div>
+    <div class="clearfix"></div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="">
+        <i class="input-helper"></i>
+        Keep me signed in
+      </label>
+    </div>
 
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="">
-      <i class="input-helper"></i>
-      Keep me signed in
-    </label>
-  </div>
-
-  <a href="#" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
-
+    <button type="submit" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></button>
   <ul class="login-navigation">
     <li data-block="#l-register" class="bgm-red">Register</li>
     <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
   </ul>
+  </form>
 </div>
 
 <!-- Register -->
@@ -61,7 +60,7 @@
     <span class="input-group-addon"><i class="md md-person"></i></span>
 
     <div class="fg-line">
-      <input type="text" class="form-control" placeholder="Username">
+      <input type="text" class="form-control" ng-bind="data.email" placeholder="Email Address">
     </div>
   </div>
 
@@ -69,7 +68,7 @@
     <span class="input-group-addon"><i class="md md-mail"></i></span>
 
     <div class="fg-line">
-      <input type="text" class="form-control" placeholder="Email Address">
+      <input type="text" class="form-control" ng-bind="data.password" placeholder="Password">
     </div>
   </div>
 
@@ -77,7 +76,7 @@
     <span class="input-group-addon"><i class="md md-accessibility"></i></span>
 
     <div class="fg-line">
-      <input type="password" class="form-control" placeholder="Password">
+      <input type="password" class="form-control" ng-bind="data.confirPassword" placeholder="Confirm Password">
     </div>
   </div>
 
@@ -90,9 +89,7 @@
       Accept the license agreement
     </label>
   </div>
-
-  <a href="#" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
-
+  <button ng-click="submit" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></button>
   <ul class="login-navigation">
     <li data-block="#l-login" class="bgm-green">Login</li>
     <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>

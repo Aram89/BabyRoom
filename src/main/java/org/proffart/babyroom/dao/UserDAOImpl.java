@@ -14,9 +14,9 @@ import java.sql.SQLException;
 @Repository
 public class UserDAOImpl extends SqlMapClientDaoSupport implements UserDAO {
 
-    @Override
+
     public void insert(User user) throws SQLException {
-        Integer id = (Integer) getSqlMapClient().insert("user.insert", user);
+//        Integer id = (Integer) getSqlMapClient().insert("user.insert", user);
     }
 
     @Override
