@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="user">
+    <typeAlias alias="user" type="org.proffart.carpool.domain.User" />
+
+    <resultMap id="result" class="user">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="firstName" column="first_name"/>
+        <result property="lastName" column="last_name"/>
+        <result property="password" column="password"/>
+        <result property="token" column="token"/>
+        <result property="phone" column="phone"/>
+        <result property="enabled" column="enabled"/>
+        <result property="fbLink" column="fb_link"/>
+        <result property="twLink" column="tw_link"/>
+        <result property="goLink" column="go_link"/>
+        <result property="fbID" column="fb_id"/>
+        <result property="twID" column="tw_id"/>
+        <result property="goID" column="go_id"/>
+    </resultMap>
+
+    <resultMap id="password" class="user">
+        <result property="password" column="password"/>
+        <result property="salt" column="salt"/>
+    </resultMap>
+
+
+
+    <insert id="insert" parameterClass="user">
+        INSERT INTO user(id,password,salt,email,phone,token,enabled,fb_link,tw_link,go_link,userName,first_name,last_name)
+        values (#id#,#password#,#salt#,#email#,#phone#,#token#,#enabled#,#fbLink#,#twLink#,#goLink#,#userName#,#firstName#,#lastName#)
+
+        <selectKey resultClass="int" keyProperty="id">
+            select last_insert_id() as id
+        </selectKey>
+    </insert>
+
+    <select id="checkUserName" resultClass="int" parameterClass="String">
+        SELECT COUNT(*) FROM user
+        where userName = #userName#
+    </select>
+
+    <select id="checkEmail" resultClass="int" parameterClass="String">
+        SELECT COUNT(*) FROM user
+        where email = #email#
+    </select>
+
+
+    <update id="update" parameterClass="User">
+        UPDATE User
+        SET    first_name = #firstName#
+        WHERE  id = #id#
+    </update>
+
+    <delete id="delete" parameterClass="int">
+        DELETE FROM User
+        WHERE  id = #id#
+    </delete>
+
+
+    <select id="getPassword" resultMap="password" parameterClass="String">
+        SELECT password,salt  FROM User
+        WHERE userName=#userName#
+    </select>
+
+</sqlMap>
