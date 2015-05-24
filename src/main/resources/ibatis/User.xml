@@ -10,11 +10,9 @@
         <result property="firstName" column="firstName"/>
         <result property="lastName" column="lastName"/>
     </resultMap>
-
-
     <insert id="insert" parameterClass="user">
         INSERT INTO users(id,login,firstName,lastName)
-        values (#id#,#password#,#salt#,#email#,#phone#,#token#,#enabled#,#fbLink#,#twLink#,#goLink#,#userName#,#firstName#,#lastName#)
+        values (#id#,#login#,#firstName#,#lastName#)
 
         <selectKey resultClass="int" keyProperty="id">
             select last_insert_id() as id
