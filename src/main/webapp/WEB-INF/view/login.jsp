@@ -21,11 +21,11 @@
 <body class="login-content" ng-app="app">
 <!-- Login -->
 <div class="lc-block toggled" id="l-login" ng-controller="loginController">
-  <form>
+  <form ng-submit="submit()">
     <div class="input-group m-b-20">
       <span class="input-group-addon"><i class="md md-person"></i></span>
       <div class="fg-line">
-        <input type="text" class="form-control" placeholder="Username">
+        <input type="text" ng-model="data.email" class="form-control" placeholder="Username">
       </div>
     </div>
 
@@ -33,7 +33,7 @@
       <span class="input-group-addon"><i class="md md-accessibility"></i></span>
 
       <div class="fg-line">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" ng-model="data.password" class="form-control" placeholder="Password">
       </div>
     </div>
 
@@ -55,12 +55,13 @@
 </div>
 
 <!-- Register -->
-<div class="lc-block" id="l-register">
+<div class="lc-block" id="l-register" ng-controller="registerController">
+  <form ng-submit="submit()">
   <div class="input-group m-b-20">
     <span class="input-group-addon"><i class="md md-person"></i></span>
 
     <div class="fg-line">
-      <input type="text" class="form-control" ng-bind="data.email" placeholder="Email Address">
+      <input type="text" class="form-control" ng-model="data.email" placeholder="Email Address">
     </div>
   </div>
 
@@ -68,7 +69,7 @@
     <span class="input-group-addon"><i class="md md-mail"></i></span>
 
     <div class="fg-line">
-      <input type="text" class="form-control" ng-bind="data.password" placeholder="Password">
+      <input type="text" class="form-control" ng-model="data.password" placeholder="Password">
     </div>
   </div>
 
@@ -76,7 +77,7 @@
     <span class="input-group-addon"><i class="md md-accessibility"></i></span>
 
     <div class="fg-line">
-      <input type="password" class="form-control" ng-bind="data.confirPassword" placeholder="Confirm Password">
+      <input type="password" class="form-control" ng-model="data.confirmPassword" placeholder="Confirm Password">
     </div>
   </div>
 
@@ -89,11 +90,12 @@
       Accept the license agreement
     </label>
   </div>
-  <button ng-click="submit" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></button>
+  <button type="submit" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></button>
   <ul class="login-navigation">
     <li data-block="#l-login" class="bgm-green">Login</li>
     <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
   </ul>
+  </form>
 </div>
 
 <!-- Forgot Password -->

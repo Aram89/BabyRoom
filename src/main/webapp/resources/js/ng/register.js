@@ -1,5 +1,5 @@
-app.controller('registerController',['sendHttp',function($scope,sendHttp){
+app.controller('registerController',['$scope','sendRequest',function($scope,sendRequest){
     $scope.submit=function(){
-        sendHttp.register($scope.data)
+        sendRequest.register($scope.data)
     }
 }])
