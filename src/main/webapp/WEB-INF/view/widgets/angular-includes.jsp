@@ -9,4 +9,4 @@
 <script src="/resources/js/ng/register.js"></script>
 <!-- controllers -->
 <script src="/resources/js/ng/login.js"></script>
-<script src="/resources/js/ng/post.js"></script>
+<script src="/resources/js/ng/ctrl/post.js"></script>

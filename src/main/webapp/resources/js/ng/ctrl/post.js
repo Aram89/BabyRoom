@@ -1,3 +1,4 @@
+'use strict';
 
 app.controller('newPostController', ['$scope', function($scope){
 

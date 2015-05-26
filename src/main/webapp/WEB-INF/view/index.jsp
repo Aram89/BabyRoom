@@ -549,6 +549,8 @@
 <script src="/resources/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
 <script src="/resources/vendors/sweet-alert/sweet-alert.min.js"></script>
 
+<script src="/resources/js/init-effects.js"></script>
+
 
 <%@include file="widgets/angular-includes.jsp"%>
 
