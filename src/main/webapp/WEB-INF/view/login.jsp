@@ -56,12 +56,19 @@
 
 <!-- Register -->
 <div class="lc-block" id="l-register" ng-controller="registerController">
-  <form ng-submit="submit()">
+  <form name="register_form" ng-submit="submit()" novalidate>
   <div class="input-group m-b-20">
     <span class="input-group-addon"><i class="md md-person"></i></span>
 
     <div class="fg-line">
-      <input type="text" class="form-control" ng-model="data.email" placeholder="Email Address">
+      <input type="email" class="form-control" ng-model="data.email" placeholder="Email Address"
+              name="email" required
+             check-unique/>
+      <div class="validationError" ng-show="register_form.email.$dirty && register_form.email.$invalid">
+        <small ng-show="register_form.email.$error.required">Email Required</small>
+        <small ng-show="register_form.email.$error.email">No valid email</small>
+        <small ng-show="!register_form.email.$error.required && !register_form.email.$error.email && register_form.email.$error.unique">This Email is taken. Please login or hint Forgot ,if you forgot your password</small>
+      </div>
     </div>
   </div>
 

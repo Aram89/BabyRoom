@@ -242,3 +242,14 @@
 #post-new .pn-body .checkbox .input-helper:after {
     border-color: #fff;
 }
+
+input.ng-invalid {
+    border-color:  red;
+}
+
+input.ng-valid {
+    border-color: green;
+}
+.validationError{
+    background-color: red;
+}
