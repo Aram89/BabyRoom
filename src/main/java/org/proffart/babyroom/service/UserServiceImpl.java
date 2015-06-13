@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService{
     @Autowired
     UserDAO userDAO;
 
-    @Override
     public void create(User user) throws SQLException, UnsupportedEncodingException, NoSuchAlgorithmException {
         String password = user.getPassword();
         String salt = StringUtils.generateRandomStrong(10);
@@ -32,7 +31,7 @@ public class UserServiceImpl implements UserService{
         userDAO.insert(user);
     }
 
-    @Override
+
     public Boolean emailExists(String email) throws SQLException {
         Integer count = userDAO.getCount(email);
         return !count.equals(0);

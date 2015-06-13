@@ -19,7 +19,7 @@ public class UserDAOImpl extends SqlMapClientDaoSupport implements UserDAO {
 //        Integer id = (Integer) getSqlMapClient().insert("user.insert", user);
     }
 
-    @Override
+
     public Integer getCount(String email) throws SQLException {
         return (Integer)getSqlMapClient().queryForObject("user.checkEmail", email);
     }
