@@ -20,6 +20,14 @@ app.controller('loginController', ['$scope', 'userServices', function($scope, us
         });
     };
 
+    $scope.forgetPassword = function() {
+        userServices.forgetPassword($scope.user).success(function(){
+            window.location.reload();
+        }).error(function(){
+            console.error(arguments);
+        });
+    }
+
 
 
 }]);

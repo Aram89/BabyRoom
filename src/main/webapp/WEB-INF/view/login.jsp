@@ -38,7 +38,7 @@
         <input type="password" ng-model="user.password" class="form-control" placeholder="Password"
             name="password" required>
       </div>
-      <small class="help-block" ng-show="loginForm.password.$error.required && !loginForm.password.$pristine">Password Required</small
+      <small class="help-block" ng-show="loginForm.password.$error.required && !loginForm.password.$pristine">Password Required</small>
     </div>
 
     <div class="clearfix"></div>
@@ -93,6 +93,20 @@
       <small class="help-block" ng-show="regForm.confirmPassword.$error.required && !regForm.confirmPassword.$pristine">Confirm Password Required</small>
     </div>
 
+    <div class="input-group m-b-20" ng-class="{'has-error' : regForm.gender.$invalid && !regForm.gender.$pristine}">
+      <span class="input-group-addon"><i class="md md-accessibility"></i></span>
+
+      <div class="fg-line">
+        <select id="gender" name="gender" ng-model="regUser.gender" class="selectpicker" required>
+          <option value="">Select your gender</option>
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
+        </select>
+      </div>
+      <small class="help-block" ng-show="regForm.gender.$error.required && !regForm.gender.$pristine">Select your gender</small>
+    </div>
+
+
     <div class="clearfix"></div>
 
     <div ng-class="{'has-error' : regForm.accepted.$invalid && !regForm.accepted.$pristine}">
@@ -115,23 +129,28 @@
 
 <!-- Forgot Password -->
 <div class="lc-block" id="l-forget-password">
+  <form name="forgetForm" ng-submit="forgetPassword()" novalidate>
   <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem
     fringilla enim feugiat commodo sed ac lacus.</p>
 
-  <div class="input-group m-b-20">
+  <div class="input-group m-b-20" ng-class="{ 'has-error' : forgetForm.email.$invalid && !forgetForm.email.$pristine }">
     <span class="input-group-addon"><i class="md md-email"></i></span>
 
     <div class="fg-line">
-      <input type="text" ng-model="user.email"  class="form-control" placeholder="Email Address">
+      <input type="email" ng-model="user.email"  class="form-control" placeholder="Email Address"
+          name="email" required>
     </div>
+    <small class="help-block" ng-show="forgetForm.email.$error.required && !forgetForm.email.$pristine">Email Required</small>
+    <small class="help-block"    ng-show="forgetForm.email.$error.email && !forgetForm.email.$pristine">No valid email</small>
   </div>
 
-  <a href="#" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
+  <button type="submit" class="btn btn-login btn-danger btn-float" ng-disabled="forgetForm.$invalid"><i class="md md-arrow-forward"></i></button>
 
   <ul class="login-navigation">
     <li data-block="#l-login" class="bgm-green">Login</li>
     <li data-block="#l-register" class="bgm-red">Register</li>
   </ul>
+  </form>
 </div>
 
 <%@include file="widgets/old-browser.jsp" %>

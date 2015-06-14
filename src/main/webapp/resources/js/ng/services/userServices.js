@@ -16,5 +16,11 @@ app.service('userServices', ['serverConnector', function(serverConnector) {
         });
     };
 
+    this.forgetPassword = function(data) {
+        return serverConnector.send({
+            url : 'user/forget-password',
+            data: data
+        });
+    }
 
 }]);
