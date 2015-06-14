@@ -26,6 +26,7 @@ CREATE TABLE `users` (
   `countryCode` CHAR(2),
   `cityId` INT(11),
   `status` ENUM('ACTIVE', 'INACTIVE', 'BLOCKED', 'DELETED') NOT NULL,
+  `type` ENUM('PARENT', 'CHILDREN', 'NANNY', 'DOCTORS') NOT NULL,
   PRIMARY KEY (`usersId`, `login`, `email`),
   UNIQUE INDEX `usersId_UNIQUE` (`usersId` ASC),
   UNIQUE INDEX `login_UNIQUE` (`login` ASC),
