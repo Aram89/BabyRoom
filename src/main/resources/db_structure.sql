@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS users;
 
 
 CREATE TABLE `users` (
-  `usersId` INT(11) NOT NULL AUTO_INCREMENT,
+  `userId` INT(11) NOT NULL AUTO_INCREMENT,
   `login` CHAR(50) NOT NULL,
   `email` CHAR(50) NOT NULL,
   `passwordSalt` VARCHAR(64) NOT NULL,
@@ -27,8 +27,8 @@ CREATE TABLE `users` (
   `cityId` INT(11),
   `status` ENUM('ACTIVE', 'INACTIVE', 'BLOCKED', 'DELETED') NOT NULL,
   `type` ENUM('PARENT', 'CHILDREN', 'NANNY', 'DOCTORS') NOT NULL,
-  PRIMARY KEY (`usersId`, `login`, `email`),
-  UNIQUE INDEX `usersId_UNIQUE` (`usersId` ASC),
+  PRIMARY KEY (`userId`, `login`, `email`),
+  UNIQUE INDEX `userId_UNIQUE` (`userId` ASC),
   UNIQUE INDEX `login_UNIQUE` (`login` ASC),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC)
 );
@@ -55,7 +55,7 @@ CREATE TABLE `parents` (
   UNIQUE INDEX `parentId_UNIQUE` (`parentId` ASC),
   CONSTRAINT `fk_parents_users`
   FOREIGN KEY (`parentId`)
-  REFERENCES `users` (`usersId`)
+  REFERENCES `users` (`userId`)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -67,7 +67,7 @@ CREATE TABLE `children` (
   UNIQUE INDEX `parentId_UNIQUE` (`parentId` ASC),
   CONSTRAINT `fk_children_users`
   FOREIGN KEY (`childrenId`)
-  REFERENCES `users` (`usersId`)
+  REFERENCES `users` (`userId`)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -77,7 +77,7 @@ CREATE TABLE `nanny` (
   UNIQUE INDEX `nannyId_UNIQUE` (`nannyId` ASC),
   CONSTRAINT `fk_nanny_users`
   FOREIGN KEY (`nannyId`)
-  REFERENCES `users` (`usersId`)
+  REFERENCES `users` (`userId`)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -87,7 +87,7 @@ CREATE TABLE `doctors` (
   UNIQUE INDEX `doctorId_UNIQUE` (`doctorId` ASC),
   CONSTRAINT `fk_doctor_users`
   FOREIGN KEY (`doctorId`)
-  REFERENCES `users` (`usersId`)
+  REFERENCES `users` (`userId`)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -100,7 +100,7 @@ CREATE TABLE `actions` (
   UNIQUE INDEX `actionId_UNIQUE` (`actionId` ASC),
   CONSTRAINT `fk_actions_users`
   FOREIGN KEY (`userId`)
-  REFERENCES `users` (`usersId`)
+  REFERENCES `users` (`userId`)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -176,11 +176,11 @@ CREATE TABLE `messages` (
   PRIMARY KEY (`messageId`),
   CONSTRAINT `fk_message_form_users`
   FOREIGN KEY (`from`)
-  REFERENCES `users` (`usersId`)
+  REFERENCES `users` (`userId`)
     ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_message_to_users`
   FOREIGN KEY (`to`)
-  REFERENCES `users` (`usersId`)
+  REFERENCES `users` (`userId`)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
