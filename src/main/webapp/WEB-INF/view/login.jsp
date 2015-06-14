@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 
 <head>
   <meta charset="utf-8">
@@ -18,35 +18,39 @@
   <link href="/resources/css/app.min.2.css" rel="stylesheet">
 </head>
 
-<body class="login-content" ng-app="app">
+<body class="login-content" ng-controller="loginController">
 <!-- Login -->
-<div class="lc-block toggled" id="l-login" ng-controller="loginController">
-  <form ng-submit="submit()">
-    <div class="input-group m-b-20">
+<div class="lc-block toggled" id="l-login">
+  <form name="loginForm" ng-submit="login()" novalidate>
+    <div class="input-group m-b-20" ng-class="{ 'has-error' : loginForm.login.$invalid && !loginForm.login.$pristine }">
       <span class="input-group-addon"><i class="md md-person"></i></span>
       <div class="fg-line">
-        <input type="text" ng-model="data.email" class="form-control" placeholder="Username">
+        <input type="text" ng-model="user.login" class="form-control" placeholder="Username"
+               name="login" required>
       </div>
+      <small class="help-block" ng-show="loginForm.login.$error.required && !loginForm.login.$pristine">Login Required</small>
     </div>
 
-    <div class="input-group m-b-20">
+    <div class="input-group m-b-20" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
       <span class="input-group-addon"><i class="md md-accessibility"></i></span>
 
       <div class="fg-line">
-        <input type="password" ng-model="data.password" class="form-control" placeholder="Password">
+        <input type="password" ng-model="user.password" class="form-control" placeholder="Password"
+            name="password" required>
       </div>
+      <small class="help-block" ng-show="loginForm.password.$error.required && !loginForm.password.$pristine">Password Required</small
     </div>
 
     <div class="clearfix"></div>
     <div class="checkbox">
       <label>
-        <input type="checkbox" value="">
+        <input type="checkbox" ng-model="user.signed">
         <i class="input-helper"></i>
         Keep me signed in
       </label>
     </div>
 
-    <button type="submit" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></button>
+    <button type="submit" class="btn btn-login btn-danger btn-float" ng-disabled="loginForm.$invalid"><i class="md md-arrow-forward"></i></button>
   <ul class="login-navigation">
     <li data-block="#l-register" class="bgm-red">Register</li>
     <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
@@ -55,53 +59,57 @@
 </div>
 
 <!-- Register -->
-<div class="lc-block" id="l-register" ng-controller="registerController">
-  <form name="register_form" ng-submit="submit()" novalidate>
-  <div class="input-group m-b-20">
-    <span class="input-group-addon"><i class="md md-person"></i></span>
+<div class="lc-block" id="l-register">
+  <form name="regForm" ng-submit="register()" novalidate>
+    <div class="input-group m-b-20" ng-class="{ 'has-error' : regForm.email.$invalid && !regForm.email.$pristine }">
+      <span class="input-group-addon"><i class="md md-person"></i></span>
 
-    <div class="fg-line">
-      <input type="email" class="form-control" ng-model="data.email" placeholder="Email Address"
-              name="email" required
-             check-unique/>
-      <div class="validationError" ng-show="register_form.email.$dirty && register_form.email.$invalid">
-        <small ng-show="register_form.email.$error.required">Email Required</small>
-        <small ng-show="register_form.email.$error.email">No valid email</small>
-        <small ng-show="!register_form.email.$error.required && !register_form.email.$error.email && register_form.email.$error.unique">This Email is taken. Please login or hint Forgot ,if you forgot your password</small>
+      <div class="fg-line">
+        <input type="email" class="form-control" ng-model="regUser.email" placeholder="Email Address"
+               name="email" required />
+      </div>
+      <small class="help-block" ng-show="regForm.email.$error.required && !regForm.email.$pristine">Email Required</small>
+      <small class="help-block"    ng-show="regForm.email.$error.email && !regForm.email.$pristine">No valid email</small>
+      <small class="help-block"   ng-show="regForm.email.$error.remote && !regForm.email.$pristine">This email already exist</small>
+    </div>
+
+    <div class="input-group m-b-20" ng-class="{ 'has-error' : regForm.password.$invalid && !regForm.password.$pristine }">
+      <span class="input-group-addon"><i class="md md-mail"></i></span>
+
+      <div class="fg-line">
+        <input type="password" id="password" class="form-control" ng-model="regUser.password" placeholder="Password"
+               name="password" required>
+      </div>
+      <small class="help-block" ng-show="regForm.password.$error.required && !regForm.password.$pristine">Password Required</small>
+    </div>
+
+    <div class="input-group m-b-20" ng-class="{ 'has-error' : regForm.confirmPassword.$invalid && !regForm.confirmPassword.$pristine }">
+      <span class="input-group-addon"><i class="md md-accessibility"></i></span>
+
+      <div class="fg-line">
+        <input type="password" id="confirmPassword" ng-model="regUser.confirmPassword" class="form-control" placeholder="Confirm Password"
+               name="confirmPassword" required>
+      </div>
+      <small class="help-block" ng-show="regForm.confirmPassword.$error.required && !regForm.confirmPassword.$pristine">Confirm Password Required</small>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div ng-class="{'has-error' : regForm.accepted.$invalid && !regForm.accepted.$pristine}">
+      <div class="checkbox">
+        <label>
+          <input id="accepted" type="checkbox" ng-model="regUser.accepted"
+                 name="accepted" required>
+          <i class="input-helper"></i>
+          Accept the license agreement
+        </label>
       </div>
     </div>
-  </div>
-
-  <div class="input-group m-b-20">
-    <span class="input-group-addon"><i class="md md-mail"></i></span>
-
-    <div class="fg-line">
-      <input type="text" class="form-control" ng-model="data.password" placeholder="Password">
-    </div>
-  </div>
-
-  <div class="input-group m-b-20">
-    <span class="input-group-addon"><i class="md md-accessibility"></i></span>
-
-    <div class="fg-line">
-      <input type="password" class="form-control" ng-model="data.confirmPassword" placeholder="Confirm Password">
-    </div>
-  </div>
-
-  <div class="clearfix"></div>
-
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="">
-      <i class="input-helper"></i>
-      Accept the license agreement
-    </label>
-  </div>
-  <button type="submit" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></button>
-  <ul class="login-navigation">
-    <li data-block="#l-login" class="bgm-green">Login</li>
-    <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
-  </ul>
+    <button type="submit" class="btn btn-login btn-danger btn-float" ng-disabled="regForm.$invalid"><i class="md md-arrow-forward"></i></button>
+    <ul class="login-navigation">
+      <li data-block="#l-login" class="bgm-green">Login</li>
+      <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
+    </ul>
   </form>
 </div>
 
@@ -114,7 +122,7 @@
     <span class="input-group-addon"><i class="md md-email"></i></span>
 
     <div class="fg-line">
-      <input type="text" class="form-control" placeholder="Email Address">
+      <input type="text" ng-model="user.email"  class="form-control" placeholder="Email Address">
     </div>
   </div>
 

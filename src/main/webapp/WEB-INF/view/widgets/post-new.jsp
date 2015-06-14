@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- new post  -->
-<div id="post-new" ng-controller="newPostController" ng-init="">
+<div id="post-new" ng-controller="newPostController" ng-init="init()">
   <div class="pn-header">
     <h2>Creta New Post</h2>
     <small>text, images, videos, soungs, alboums</small>
@@ -32,7 +32,7 @@
       <i class="add-new-item md md-add" ng-click="open()"></i>
 
       <div class="add-pn-body">
-        <textarea placeholder="What's on your mind..."></textarea>
+        <textarea id="post_content" ng-model="post.content" placeholder="What's on your mind..."  ng-focus="focus()" ng-blur="blur()"></textarea>
 
         <div class="add-pn-actions">
           <a class="pn-action-dismiss" ng-click="dismiss()"><i class="md md-close"></i></a>
