@@ -1,20 +1,24 @@
-app.directive('checkUnique',['$http',function($http){
+app.directive('ngRemoteCheck',['$http',function($http){
     return{
         restrict:"A",
         require:"ngModel",
         link:function(scope,elem,attr,ctrl){
+            var checkUrl = attr['ngRemoteCheck'],
+                propName = 'name', params={};
+            if(attr['id']) propName = attr['id'];
+            if(attr['name']) propName = attr['name'];
             scope.$watch(attr.ngModel,function(){
+                params[propName] = ctrl.$modelValue;
                 $http({
                     method:"GET",
-                    url:"user/check-email",
-                    params: {email:ctrl.$modelValue}
-                }).success(function(data,status){ctrl.$setValidity('unique',data)})
-                    .error(function(data,status){ctrl.$setValidity('unique',false)})
+                    url: checkUrl,
+                    params: params
+                }).success(function(data){ctrl.$setValidity('remote',data.result)})
+                    .error(function(data){ctrl.$setValidity('remote',false)})
             })
         }
     }
 }]);
-
 
 app.directive('ngRemoteCheck', ['$http', function ($http) {
     return {
