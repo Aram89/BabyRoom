@@ -1,4 +1,4 @@
-app.directive('ngRemoteCheck',['$http','$timeout',function($http,$timeout){
+app.directive('ngRemoteCheck',['$http', function($http){
     return{
         restrict:"A",
         require:"ngModel",
