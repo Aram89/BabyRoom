@@ -1,13 +1,16 @@
-app.directive('ngRemoteCheck',['$http',function($http){
+app.directive('ngRemoteCheck',['$http','$timeout',function($http,$timeout){
     return{
         restrict:"A",
         require:"ngModel",
         link:function(scope,elem,attr,ctrl){
             var checkUrl = attr['ngRemoteCheck'],
-                propName = 'name', params={};
+                propName = 'name', params={},timeoutID;
             if(attr['id']) propName = attr['id'];
             if(attr['name']) propName = attr['name'];
-            scope.$watch(attr.ngModel,function(){
+            function  validate(){
+                ctrl.$setValidity('remote',true);
+                if(timeoutID) clearTimeout(timeoutID);
+                timeoutID = setTimeout(function(){
                 params[propName] = ctrl.$modelValue;
                 $http({
                     method:"GET",
@@ -15,11 +18,14 @@ app.directive('ngRemoteCheck',['$http',function($http){
                     params: params
                 }).success(function(data){ctrl.$setValidity('remote',data.result)})
                     .error(function(data){ctrl.$setValidity('remote',false)})
+            },300)}
+            scope.$watch(attr.ngModel,function(){
+                validate();
             })
         }
     }
 }]);
-
+/*
 app.directive('ngRemoteCheck', ['$http', function ($http) {
     return {
         restrict : 'A',
@@ -33,9 +39,6 @@ app.directive('ngRemoteCheck', ['$http', function ($http) {
                 timeoutId , isValid = false, params={};
             if(attrs['id']) propName = attrs['id'];
             if(attrs['name']) propName = attrs['name'];
-
-
-
             var validator = function (value) {
                 ctrl.$$rawModelValue = value;
                 ctrl.$validate();
@@ -83,4 +86,4 @@ app.directive('ngRemoteCheck', ['$http', function ($http) {
 
         }
     };
-}]);
+}]);*/

@@ -65,12 +65,12 @@
       <span class="input-group-addon"><i class="md md-person"></i></span>
 
       <div class="fg-line">
-        <input type="email" class="form-control" ng-model="regUser.email" placeholder="Email Address"
+        <input type="email" class="form-control" ng-remote-check="user/check-email" ng-model="regUser.email" placeholder="Email Address"
                name="email" required />
       </div>
       <small class="help-block" ng-show="regForm.email.$error.required && !regForm.email.$pristine">Email Required</small>
       <small class="help-block"    ng-show="regForm.email.$error.email && !regForm.email.$pristine">No valid email</small>
-      <small class="help-block"   ng-show="regForm.email.$error.remote && !regForm.email.$pristine">This email already exist</small>
+      <small class="help-block"   ng-show="regForm.email.$error.remote && !regForm.email.$pristine && !regForm.email.$error.email">This email already exist</small>
     </div>
 
     <div class="input-group m-b-20" ng-class="{ 'has-error' : regForm.password.$invalid && !regForm.password.$pristine }">
@@ -137,7 +137,7 @@
     <span class="input-group-addon"><i class="md md-email"></i></span>
 
     <div class="fg-line">
-      <input type="email" ng-model="user.email"  class="form-control" placeholder="Email Address"
+      <input type="email" ng-model="user.email" ng-remote-check="email"  class="form-control" placeholder="Email Address"
           name="email" required>
     </div>
     <small class="help-block" ng-show="forgetForm.email.$error.required && !forgetForm.email.$pristine">Email Required</small>
