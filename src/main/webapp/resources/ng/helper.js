@@ -1,30 +1,52 @@
-app.directive('ngRemoteCheck',['$http', function($http){
-    return{
-        restrict:"A",
-        require:"ngModel",
-        link:function(scope,elem,attr,ctrl){
-            var checkUrl = attr['ngRemoteCheck'],
-                propName = 'name', params={},timeoutID;
-            if(attr['id']) propName = attr['id'];
-            if(attr['name']) propName = attr['name'];
-            function  validate(){
-                ctrl.$setValidity('remote',true);
-                if(timeoutID) clearTimeout(timeoutID);
-                timeoutID = setTimeout(function(){
-                params[propName] = ctrl.$modelValue;
-                $http({
-                    method:"GET",
-                    url: checkUrl,
-                    params: params
-                }).success(function(data){ctrl.$setValidity('remote',data.result)})
-                    .error(function(data){ctrl.$setValidity('remote',false)})
-            },300)}
-            scope.$watch(attr.ngModel,function(){
-                validate();
+app.directive('ngRemoteCheck',['$http', function($http) {
+    return {
+        restrict: "A",
+        require: "ngModel",
+        link: function (scope, elem, attr, ctrl) {
+                var checkUrl = attr['ngRemoteCheck'],
+                    propName = 'name', params = {}, timeoutID;
+                if (attr['id']) propName = attr['id'];
+                if (attr['name']) propName = attr['name'];
+                function validate() {
+                    ctrl.$setValidity('remote', true);
+                    if (timeoutID) clearTimeout(timeoutID);
+                    timeoutID = setTimeout(function () {
+                        params[propName] = ctrl.$modelValue;
+                        $http({
+                            method: "GET",
+                            url: checkUrl,
+                            params: params
+                        }).success(function (data) {
+                            ctrl.$setValidity('remote', true);
+                        })
+                            .error(function (data) {
+                                ctrl.$setValidity('remote', false);
+                            })
+                    }, 300)
+                }
+                scope.$watch(attr.ngModel, function () {
+                    validate();
+                })
+            }
+        }
+}]);
+
+app.directive('compareTo',function(){
+    return {
+        require: 'ngModel',
+        scope: {
+            compareTo: "=compareTo"
+        },
+        link: function (scope, elem, attr, c) {
+            c.$validators.compareTo= function (modelVal) {
+                return modelVal == scope.compareTo
+            };
+            scope.$watch("compareTo",function(){
+                c.$validate();
             })
         }
     }
-}]);
+});
 /*
 app.directive('ngRemoteCheck', ['$http', function ($http) {
     return {

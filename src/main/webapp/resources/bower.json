@@ -5,6 +5,7 @@
     "angular": "1.4.1",
     "angular-material": "*",
     "angular-route": "*",
+    "angular-messages":"*",
     "angular-resource": "*"
   }
 }
