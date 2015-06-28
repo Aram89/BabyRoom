@@ -19,7 +19,7 @@ CREATE TABLE `users` (
   `login` CHAR(50) NOT NULL,
   `email` CHAR(50) NOT NULL,
   `passwordSalt` VARCHAR(64) NOT NULL,
-  `passwordHash` VARCHAR(45) NOT NULL,
+  `passwordHash` VARCHAR(64) NOT NULL,
   `firstName` VARCHAR(50) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
   `gender` ENUM('MALE', 'FEMALE') NOT NULL,

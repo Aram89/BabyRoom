@@ -1,25 +1,69 @@
 package org.proffart.babyroom.domain;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import org.proffart.babyroom.utils.StringUtils;
+import org.proffart.babyroom.utils.Utils;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Generated;
+import javax.persistence.*;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by Aram on 5/17/2015.
  */
+@Entity
+@Table(name="users")
 public class User {
+    private long id;
     private String email;
-    private String password;
-    private String confirmPassword;
-    private String passwordSalt;
     private String passwordHash;
+    private String status;
+    private String firstName;
+    private String lastName;
+    private String type;
 
-    public String getPasswordSalt() {
-        return passwordSalt;
+    @Column(name="type")
+    public String getType() {
+        return type;
     }
 
-    public void setPasswordSalt(String passwordSalt) {
-        this.passwordSalt = passwordSalt;
+    public void setType(String type) {
+        this.type = type;
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name = "usersId")
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Column(name="firstName")
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Column(name="lastName")
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Column(name="passwordHash")
     public String getPasswordHash() {
         return passwordHash;
     }
@@ -28,6 +72,7 @@ public class User {
         this.passwordHash = passwordHash;
     }
 
+    @Column(name="email")
     public String getEmail() {
         return email;
     }
@@ -36,19 +81,17 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+
+    public void setPassword(String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        this.passwordHash = Utils.hash(password);
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Column(name="status")
+    public String getStatus() {
+        return status;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
