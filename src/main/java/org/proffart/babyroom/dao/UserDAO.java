@@ -1,7 +1,7 @@
 package org.proffart.babyroom.dao;
 
 import org.proffart.babyroom.domain.User;
-import org.proffart.babyroom.exception.AppException;
+import org.proffart.babyroom.Exception.AppException;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;

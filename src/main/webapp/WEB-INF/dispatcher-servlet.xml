@@ -17,7 +17,7 @@
 
     <context:component-scan base-package="org.proffart.babyroom.service"/>
     <context:property-placeholder location="WEB-INF/jdbc.properties"/>
-    <context:component-scan base-package="org.proffart.babyroom.exception"/>
+    <context:component-scan base-package="org.proffart.babyroom.Exception"/>
 
 
 
@@ -48,7 +48,7 @@
     <!-- Transaction manager for the Hibernate SessionFactory -->
     <bean id="txnManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"
           p:sessionFactory-ref="sessionFactory"/>
-    <!-- Apply persistence exception translation on @Repository classes -->
+    <!-- Apply persistence Exception translation on @Repository classes -->
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
 

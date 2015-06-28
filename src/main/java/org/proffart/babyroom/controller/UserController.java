@@ -1,8 +1,8 @@
 package org.proffart.babyroom.controller;
 
 import org.proffart.babyroom.domain.User;
-import org.proffart.babyroom.exception.*;
-import org.proffart.babyroom.exception.Error;
+import org.proffart.babyroom.Exception.*;
+import org.proffart.babyroom.Exception.Error;
 import org.proffart.babyroom.service.UserService;
 import org.proffart.babyroom.utils.RequestMappings;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;

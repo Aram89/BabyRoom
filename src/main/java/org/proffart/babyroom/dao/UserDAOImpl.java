@@ -2,8 +2,8 @@ package org.proffart.babyroom.dao;
 
 import org.hibernate.Query;
 import org.proffart.babyroom.domain.User;
-import org.proffart.babyroom.exception.*;
-import org.proffart.babyroom.exception.Error;
+import org.proffart.babyroom.Exception.*;
+import org.proffart.babyroom.Exception.Error;
 import org.proffart.babyroom.utils.Utils;
 import org.springframework.stereotype.Repository;
 
