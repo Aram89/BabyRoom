@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--Styles--%>
+<link rel="stylesheet" href="/resources/bower_components/angular-material/angular-material.css">
+
 <%--End Styles--%>
 <!--scripts-->
 <script src="/resources/bower_components/angular/angular.js"></script>
