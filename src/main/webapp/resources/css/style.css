@@ -253,3 +253,24 @@ input.ng-valid {
 .validationError{
     background-color: red;
 }
+
+
+ /*mine*/
+ .login-content{
+     display: inline-block;
+     height: 100%;
+ }
+ .login-content .top-part{
+     height: 50%;
+     border-bottom:solid 2px;
+     border-bottom-color: palevioletred;
+ }
+ .login-content .bottom-part{
+     height: 50%;
+     background-color: purple;
+ }
+ .login-content .bottom-part .forms-container{
+     height: 400px;
+     width: 600px;
+     margin: auto;
+ }

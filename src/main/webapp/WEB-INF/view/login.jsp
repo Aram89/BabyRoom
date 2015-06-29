@@ -8,75 +8,92 @@
     <title>Baby Room</title>
 
     <!-- Vendor CSS -->
-    <link href="/resources/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/resources/css/style.css">
     <style>
-    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-        display: none !important;
-    }
-</style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
     <!-- CSS -->
 </head>
 
-<body class="login-content" ng-controller="loginController" ng-cloak>
-<!-- Register -->
+<body ng-controller="loginController" ng-cloak>
+<div class="login-content">
+    <div class="top-part">
+        <video width="100%" height="auto" controls="false" autoplay loop>
+            <source src="/resources/video/baby.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="bottom-part">
+        <div class="forms-container">
+            <!-- Register -->
+            <div ng-show="shownForm=='register'" class="register-form">
+                <form name="registerForm" ng-submit="register()" novalidate>
+                    <md-input-container>
+                        <label>Email</label>
+                        <input required ng-remote-check="user/check-email" name="email" type="email"
+                               ng-model="regUser.email"/>
 
-<div ng-show="shownForm=='register'" class="register-form">
-    <form name="registerForm" ng-submit="register()" novalidate>
-        <md-input-container>
-            <label>Email</label>
-            <input required ng-remote-check="user/check-email" name="email" type="email" ng-model="regUser.email"/>
-            <div ng-messages="registerBlock.showWarnings && registerForm.email.$error">
-                <div ng-message="required">Email is required</div>
-                <div ng-message="email">Not valid email</div>
-                <div ng-message="remote">Email is exists</div>
+                        <div ng-messages="registerBlock.showWarnings && registerForm.email.$error">
+                            <div ng-message="required">Email is required</div>
+                            <div ng-message="email">Not valid email</div>
+                            <div ng-message="remote">Email is exists</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Password</label>
+                        <input required name="password" type="password" ng-model="regUser.password"/>
+
+                        <div ng-messages="registerBlock.showWarnings && registerForm.password.$error">
+                            <div ng-message="required">Password Required</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Confirm Password</label>
+                        <input required compare-to="regUser.password" name="confirmPassword" type="password"
+                               ng-model="regUser.confirmPassword"/>
+
+                        <div ng-messages="registerBlock.showWarnings && registerForm.confirmPassword.$error">
+                            <div ng-message="required">Confirm Password required</div>
+                            <div ng-message="compareTo">Passwords don't match</div>
+                        </div>
+                    </md-input-container>
+                    <md-select placeholder="Account Type" ng-model="regUser.accountType">
+                        <md-option ng-value="'parent'">Parent</md-option>
+                        <md-option ng-value="'nany'">Babysiter</md-option>
+                        <md-option ng-value="'doctor'">Doctor</md-option>
+                        <md-option ng-value="'shop'">Shop</md-option>
+                    </md-select>
+                    <md-button class="md-raised md-primary"
+                               ng-disabled="register.showWarnings && registerForm.$invalid">
+                        Submit
+                    </md-button>
+                </form>
+                <div>
+                    <md-button ng-click="changeForm('login')">Login</md-button>
+                    <md-button ng-click="changeForm('forgot')">Forgot</md-button>
+                </div>
             </div>
-        </md-input-container>
-        <md-input-container>
-            <label>Password</label>
-            <input required name="password" type="password" ng-model="regUser.password"/>
-            <div ng-messages="registerBlock.showWarnings && registerForm.password.$error">
-                <div ng-message="required">Password Required</div>
+
+            <!-- Login -->
+            <div ng-show="shownForm=='login'" class="login-form">
+                <form>
+                    LOGIN CONTENT
+                </form>
+                <md-button ng-click="changeForm('register')">Register</md-button>
+                <md-button ng-click="changeForm('forgot')">Forgot</md-button>
             </div>
-        </md-input-container>
-        <md-input-container>
-            <label>Confirm Password</label>
-            <input required compare-to="regUser.password" name="confirmPassword" type="password" ng-model="regUser.confirmPassword"/>
-            <div ng-messages="registerBlock.showWarnings && registerForm.confirmPassword.$error">
-                <div ng-message="required">Confirm Password required</div>
-                <div ng-message="compareTo">Passwords don't match</div>
+            <!-- Forgot Password -->
+            <div ng-show="shownForm=='forgot'" class="forgot-form">
+                <form>
+                    FORGOT CONtENT
+                </form>
+                <md-button ng-click="changeForm('login')">Login</md-button>
+                <md-button ng-click="changeForm('register')">Register</md-button>
             </div>
-        </md-input-container>
-        <md-select placeholder="Account Type" ng-model="regUser.accountType">
-            <md-option ng-value="'parent'">Parent</md-option>
-            <md-option ng-value="'nany'">Babysiter</md-option>
-            <md-option ng-value="'doctor'">Doctor</md-option>
-            <md-option ng-value="'shop'">Shop</md-option>
-        </md-select>
-        <md-button class="md-raised md-primary" ng-disabled="register.showWarnings && registerForm.$invalid">Submit</md-button>
-    </form>
-    <div>
-        <md-button ng-click="changeForm('login')">Login</md-button>
-        <md-button ng-click="changeForm('forgot')">Forgot</md-button>
+        </div>
     </div>
 </div>
-
-<!-- Login -->
-    <div ng-show="shownForm=='login'" class="login-form">
-        <form>
-            LOGIN CONTENT
-        </form>
-        <md-button ng-click="changeForm('register')">Register</md-button>
-        <md-button ng-click="changeForm('forgot')">Forgot</md-button>
-    </div>
-<!-- Forgot Password -->
-    <div ng-show="shownForm=='forgot'" class="forgot-form">
-        <form>
-            FORGOT CONtENT
-        </form>
-        <md-button ng-click="changeForm('login')">Login</md-button>
-        <md-button ng-click="changeForm('register')">Register</md-button>
-    </div>
-
 <%@include file="widgets/old-browser.jsp" %>
 
 <!-- Javascript Libraries -->
@@ -85,10 +102,9 @@
 
 <script src="/resources/vendors/waves/waves.min.js"></script>
 
-<script src="/resources/js/functions.js"></script>
+<!--script src="/resources/js/functions.js"></script-->
 
 <%@include file="widgets/angular-includes.jsp" %>
-
 
 </body>
 
