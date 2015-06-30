@@ -255,22 +255,23 @@ input.ng-valid {
 }
 
 
- /*mine*/
- .login-content{
-     display: block;
-     height: 100%;
- }
- .login-content .top-part{
-     height: 50%;
-     border-bottom:solid 2px;
-     border-bottom-color: #26A69A;
- }
- .login-content .bottom-part{
-     height: 50%;
-     background-color: #4DB6AC;
- }
- .login-content .bottom-part .forms-container{
-     height: 400px;
-     width: 600px;
-     margin: auto;
- }
+/*mine*/
+.body{
+    height: 100% !important;
+}
+.login-content{
+}
+.login-content .top-part{
+    height: 50%;
+    border-bottom:solid 2px;
+    border-bottom-color: palevioletred;
+}
+.login-content .bottom-part{
+    height: 50%;
+    background-color: purple;
+}
+.login-content .bottom-part .forms-container{
+    height: 400px;
+    width: 600px;
+    margin: auto;
+}

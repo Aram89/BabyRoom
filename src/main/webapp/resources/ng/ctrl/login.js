@@ -1,6 +1,7 @@
-app.controller('loginController', ['$scope', 'userServices', function($scope, userServices) {
+app.controller('loginController', ['$scope', 'userServices','$window', function($scope, userServices,$window) {
     'use strict';
     ///---Functions---///
+
     $scope.shownForm = 'login';
     $scope.changeForm = function(form){
         if(form=='forgot'){
