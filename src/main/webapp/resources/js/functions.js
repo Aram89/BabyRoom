@@ -622,9 +622,9 @@ $(document).ready(function(){
      * Lightbox
      */
     if ($('.lightbox')[0]) {
-        /*$('.lightbox').lightGallery({
+        $('.lightbox').lightGallery({
             enableTouch: true
-        });*/
+        }); 
     }
     
     /*

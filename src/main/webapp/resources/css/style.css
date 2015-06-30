@@ -257,17 +257,17 @@ input.ng-valid {
 
  /*mine*/
  .login-content{
-     display: inline-block;
+     display: block;
      height: 100%;
  }
  .login-content .top-part{
      height: 50%;
      border-bottom:solid 2px;
-     border-bottom-color: palevioletred;
+     border-bottom-color: #26A69A;
  }
  .login-content .bottom-part{
      height: 50%;
-     background-color: purple;
+     background-color: #4DB6AC;
  }
  .login-content .bottom-part .forms-container{
      height: 400px;
