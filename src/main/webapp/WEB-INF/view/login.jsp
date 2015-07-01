@@ -21,7 +21,7 @@
 <body ng-controller="loginController" ng-cloak>
 <div class="login-content">
     <div class="top-part">
-        <video autoplay loop>
+        <video width="100%" height="auto"  autoplay loop>
             <source src="/resources/video/baby.mp4" type="video/mp4">
         </video>
     </div>
