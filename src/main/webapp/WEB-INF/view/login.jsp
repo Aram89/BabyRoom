@@ -9,6 +9,7 @@
 
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="/resources/css/style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
     <style>
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
             display: none !important;
@@ -20,12 +21,13 @@
 <body ng-controller="loginController" ng-cloak>
 <div class="login-content">
     <div class="top-part">
-        <video controls="false" autoplay loop>
+        <video autoplay loop>
             <source src="/resources/video/baby.mp4" type="video/mp4">
         </video>
     </div>
     <div class="bottom-part">
         <div class="forms-container">
+
             <!-- Register -->
             <div ng-show="shownForm=='register'" class="register-form">
                 <form name="registerForm" ng-submit="register()" novalidate>
@@ -86,7 +88,7 @@
             <!-- Forgot Password -->
             <div ng-show="shownForm=='forgot'" class="forgot-form">
                 <form>
-                    FORGOT CONtENT
+                    FORGOT CONTENT
                 </form>
                 <md-button ng-click="changeForm('login')">Login</md-button>
                 <md-button ng-click="changeForm('register')">Register</md-button>
