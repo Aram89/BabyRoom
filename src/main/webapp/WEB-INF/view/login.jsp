@@ -16,6 +16,7 @@
         }
     </style>
     <!-- CSS -->
+
 </head>
 
 <body ng-controller="loginController" ng-cloak>
@@ -30,7 +31,8 @@
 
             <!-- Register -->
             <div ng-show="shownForm=='register'" class="register-form">
-                <form name="registerForm" ng-submit="register()" novalidate>
+                <form name="registerForm" ng-submit="register()" noval qidate>
+
                     <md-input-container>
                         <label>Email</label>
                         <input required ng-remote-check="user/check-email" name="email" type="email"
@@ -72,14 +74,14 @@
                     </md-button>
                 </form>
                 <div>
-                    <md-button ng-click="changeForm('login')">Login</md-button>
-                    <md-button ng-click="changeForm('forgot')">Forgot</md-button>
+                    <md-button class="md-raised" ng-click="changeForm('login')">Login</md-button>
+                    <md-button class="md-raised" ng-click="changeForm('forgot')">Forgot</md-button>
                 </div>
             </div>
 
             <!-- Login -->
             <div ng-show="shownForm=='login'" class="login-form">
-                <form>
+                <form class="login-title">
                     LOGIN CONTENT
                 </form>
                 <md-button ng-click="changeForm('register')">Register</md-button>
@@ -87,7 +89,7 @@
             </div>
             <!-- Forgot Password -->
             <div ng-show="shownForm=='forgot'" class="forgot-form">
-                <form>
+                <form class="login-title">
                     FORGOT CONTENT
                 </form>
                 <md-button ng-click="changeForm('login')">Login</md-button>
@@ -101,7 +103,6 @@
 <!-- Javascript Libraries -->
 <script src="/resources/bower_components/jquery/src/jquery.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
-
 
 <!--script src="/resources/js/functions.js"></script-->
 

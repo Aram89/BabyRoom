@@ -265,32 +265,32 @@ input.ng-valid {
 .login-content .top-part{
     height: 50%;
     overflow: hidden;
-    border-bottom:solid 2px red;;
     box-sizing: border-box;
 }
-.login-content .bottom-part{
-    height:50%;
+.login-content .bottom-part {
     background-color: #4DB6AC;
+    min-height: 50%;
+    padding: 10px;
 }
 .login-content .top-part video{
     margin:0 auto;
     display:block
 }
 .login-content .bottom-part .forms-container {
-    width: 460px;
-    position: absolute;
-    height: 450px;
+    width: 350px;
+    position: relative;
+    min-height: 60px;
     margin: auto;
-    top: 50%;
-    margin-top: -225px;
-    overflow: hidden;
+    margin-top: -75px;
     background-color: #FAFAFA;
     border-radius: 2px;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
     padding: 35px 55px 35px;
     display: block;
-    left: 50%;
-    margin-left: -230px;
     vertical-align: middle;
-    box-sizing: border-box;
+}
+.login-title{
+    text-align: center;
+    color: #4DB6AC;
+    font-weight: bold;
 }
