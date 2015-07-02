@@ -26,9 +26,9 @@
             <source src="/resources/video/baby.mp4" type="video/mp4">
         </video>
     </div>
+
     <div class="bottom-part">
         <div class="forms-container">
-
             <!-- Register -->
             <div ng-show="shownForm=='register'" class="register-form">
                 <form name="registerForm" ng-submit="register()" noval qidate>
@@ -62,6 +62,8 @@
                             <div ng-message="compareTo">Passwords don't match</div>
                         </div>
                     </md-input-container>
+
+
                     <md-select placeholder="Account Type" ng-model="regUser.accountType">
                         <md-option ng-value="'parent'">Parent</md-option>
                         <md-option ng-value="'nany'">Babysiter</md-option>
@@ -84,16 +86,16 @@
                 <form class="login-title">
                     LOGIN CONTENT
                 </form>
-                <md-button ng-click="changeForm('register')">Register</md-button>
-                <md-button ng-click="changeForm('forgot')">Forgot</md-button>
+                <md-button ng-click="changeForm('register')" class="btn-login">Register</md-button>
+                <md-button ng-click="changeForm('forgot')" class="btn-login">Forgot</md-button>
             </div>
             <!-- Forgot Password -->
             <div ng-show="shownForm=='forgot'" class="forgot-form">
                 <form class="login-title">
                     FORGOT CONTENT
                 </form>
-                <md-button ng-click="changeForm('login')">Login</md-button>
-                <md-button ng-click="changeForm('register')">Register</md-button>
+                <md-button ng-click="changeForm('login')" class="btn-login">Login</md-button>
+                <md-button ng-click="changeForm('register')" class="btn-login">Register</md-button>
             </div>
         </div>
     </div>
