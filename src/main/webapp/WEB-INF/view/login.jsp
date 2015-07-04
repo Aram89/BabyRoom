@@ -32,12 +32,11 @@
             <!-- Register -->
             <div ng-show="shownForm=='register'" class="register-form">
                 <form name="registerForm" ng-submit="register()" novalidate>
-
-                    <md-input-container>
+                    <md-input-container md-no-float>
                         <label>Email</label>
+                        <ng-md-icon icon="email"></ng-md-icon>
                         <input required ng-remote-check="user/check-email" name="email" type="email"
                                ng-model="regUser.email"/>
-
                         <div ng-messages="registerBlock.showWarnings && registerForm.email.$error">
                             <div ng-message="required">Email is required</div>
                             <div ng-message="email">Not valid email</div>
@@ -62,14 +61,6 @@
                             <div ng-message="compareTo">Passwords don't match</div>
                         </div>
                     </md-input-container>
-
-
-                    <md-select placeholder="Account Type" ng-model="regUser.accountType">
-                        <md-option ng-value="'parent'">Parent</md-option>
-                        <md-option ng-value="'nany'">Babysiter</md-option>
-                        <md-option ng-value="'doctor'">Doctor</md-option>
-                        <md-option ng-value="'shop'">Shop</md-option>
-                    </md-select>
                     <md-button class="md-raised md-primary"
                                ng-disabled="register.showWarnings && registerForm.$invalid">
                         Submit
