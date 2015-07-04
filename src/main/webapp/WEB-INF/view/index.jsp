@@ -21,8 +21,8 @@
   <link href="/resources/css/style.css" rel="stylesheet">
 
 </head>
-<body>
-<header id="header">
+<body ng-app="app" ng-controller="pageController">
+<!--header id="header">
   <ul class="header-inner">
 
     <li class="logo hidden-xs">
@@ -31,7 +31,7 @@
 
   </ul>
 
-</header>
+</header-->
 
 <section id="main">
 
@@ -45,10 +45,10 @@
           <div class="tabbable tabs-left">
             <ul class="nav nav-tabs">
               <li class="active">
-                <a href="#tab-1" data-toggle="tab" class="waves-effect">Tab 1</a>
+                <a href="#social" data-toggle="tab" class="waves-effect">Tab 1</a>
               </li>
               <li>
-                <a href="#tab-2" data-toggle="tab" class="waves-effect">Tab 2</a>
+                <a href="#market" data-toggle="tab" class="waves-effect">Tab 2</a>
               </li>
               <li>
                 <a href="#tab-3" data-toggle="tab" class="waves-effect">Tab 3</a>
@@ -60,70 +60,20 @@
                 <a href="#tab-5" data-toggle="tab" class="waves-effect">Tab 5</a>
               </li>
               <li>
-                <a href="#tab-6" data-toggle="tab" class="waves-effect">Tab 6</a>
+                <a href="#tab-6" data-toggle="tab" class="waves-effect">              <span>{{$route.current}}</span>
+                </a>
               </li>
               <li>
                 <a href="#tab-7" data-toggle="tab" class="waves-effect">Tab 7</a>
               </li>
             </ul>
             <div class="tab-content p-20">
-              <div class="tab-pane active" id="tab-1">
-                <h1>Tab 1</h1>
-                Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
-                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.
-              </div>
-              <div class="tab-pane " id="tab-2">
-                <div class="embed-responsive embed-responsive-16by9 m-b-20">
-                  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/aaZXDm3RXuo"></iframe>
-                </div>
-              </div>
-              <div class="tab-pane " id="tab-3">
-                <h1>Tab 3</h1>
-                Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
-                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.
-              </div>
-              <div class="tab-pane " id="tab-4">
-                <h1>Tab 4</h1>
-                Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
-                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.
-              </div>
-              <div class="tab-pane " id="tab-5">
-                <h1>Tab 5</h1>
-                Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
-                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.
-              </div>
-              <div class="tab-pane " id="tab-6">
-                <h1>Tab 6</h1>
-                Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
-                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.
-              </div>
-              <div class="tab-pane " id="tab-7">
-                <h1>Tab 7</h1>
-                Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
-                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.
-              </div>
+              <div ng-view></div>
             </div>
           </div>
-
-
-
-
-
-
         </div>
       </div>
-
-
-
-
-
-
-
-
-
       <div class="card c-timeline">
-
-
         <div class="clearfix">
           <ul tabindex="1" style="overflow: hidden;" class="tab-nav tn-justified">
             <li class="waves-effect"><a href="index.html">About</a></li>
@@ -131,15 +81,8 @@
             <li class="waves-effect"><a href="index.html">Photos</a></li>
             <li class="waves-effect"><a href="index.html">Connections</a></li>
           </ul>
-
-
-
-
           <%@ include file="widgets/post-new.jsp"%>
-
           <div class="timeline">
-
-
             <div class="t-view" data-tv-type="text">
               <div class="tv-header media">
                 <a href="#" class="tvh-user pull-left">
@@ -149,7 +92,6 @@
                   <strong class="d-block">Malinda Hollaway</strong>
                   <small class="c-gray">April 23, 2014 at 05:00</small>
                 </div>
-
                 <ul class="actions m-t-20 hidden-xs">
                   <li class="dropdown">
                     <a href="#" data-toggle="dropdown">
@@ -520,12 +462,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-
-
     </div>
   </section>
 </section>
@@ -553,7 +489,9 @@
 
 
 <%@include file="widgets/angular-includes.jsp"%>
-
+<script src='resources/ng/ctrl/page.js'></script>
+<script src='resources/ng/ctrl/market.js'></script>
+<script src='resources/ng/ctrl/social.js'></script>
 </body>
 
 </html>

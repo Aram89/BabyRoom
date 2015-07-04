@@ -31,7 +31,7 @@
         <div class="forms-container">
             <!-- Register -->
             <div ng-show="shownForm=='register'" class="register-form">
-                <form name="registerForm" ng-submit="register()" noval qidate>
+                <form name="registerForm" ng-submit="register()" novalidate>
 
                     <md-input-container>
                         <label>Email</label>
