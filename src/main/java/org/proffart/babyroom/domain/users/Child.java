@@ -8,8 +8,7 @@ import javax.persistence.Table;
 /**
  * Created by Aram on 5/24/2015.
  */
-@Entity
-@Table(name = "child")
+
 public class Child extends User {
     private String gender;
     private int parentId;

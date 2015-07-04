@@ -1,5 +1,6 @@
 package org.proffart.babyroom.domain;
 
+import org.proffart.babyroom.domain.users.AccountType;
 import org.proffart.babyroom.utils.StringUtils;
 import org.proffart.babyroom.utils.Utils;
 import org.springframework.context.annotation.Scope;
@@ -19,12 +20,11 @@ import java.security.NoSuchAlgorithmException;
  */
 @Entity
 @Table(name="user")
-@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     // User id.
     private long id;
 
-    // User email.;2
+    // User email.
     private String email;
 
     // Hashed password.
@@ -33,16 +33,7 @@ public class User {
     // User status(active, inactive, blocked).
     private String status;
 
-    // User name.
-    private String firstName;
-
-    // User last name.
-    private String lastName;
-
-    // User type.
-    private String type;
-
-    @Column(name="type")
+    @Column(name = "type")
     public String getType() {
         return type;
     }
@@ -62,34 +53,7 @@ public class User {
         this.id = id;
     }
 
-    @Column(name="firstName")
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    @Column(name="lastName")
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    @Column(name="passwordHash")
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
-    }
-
-    @Column(name="email")
+    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -98,12 +62,16 @@ public class User {
         this.email = email;
     }
 
-
-    public void setPassword(String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        this.passwordHash = Utils.hash(password);
+    @Column(name = "passwordHash")
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    @Column(name="status")
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    @Column(name = "status")
     public String getStatus() {
         return status;
     }
@@ -111,4 +79,9 @@ public class User {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    // User type.
+    private String type;
+
+
 }

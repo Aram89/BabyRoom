@@ -11,8 +11,8 @@ import javax.persistence.Table;
  *
  * Domain class for parents.
  */
-@Entity
-@Table(name = "parent")
-@PrimaryKeyJoinColumn(name = "userId")
-public class Parent extends User{
+//@Entity
+//@Table(name = "parent")
+//@PrimaryKeyJoinColumn(name = "parentId")
+public class Parent{
 }

@@ -24,13 +24,14 @@ import java.sql.SQLException;
 @Transactional
 @Service
 public class UserServiceImpl implements UserService{
+
     @Autowired
-    UserDAO userDAO;
+    private UserDAO userDAO;
+
 
     public void create(User user) throws SQLException, UnsupportedEncodingException, NoSuchAlgorithmException {
         userDAO.insert(user);
     }
-
 
     public Boolean emailExists(String email) throws SQLException {
         return userDAO.checkEmail(email);
@@ -41,7 +42,6 @@ public class UserServiceImpl implements UserService{
             UnsupportedEncodingException, NoSuchAlgorithmException, AppException {
         User user = userDAO.login(userName, password);
     }
-
 
     public static User getCurrentUser () {
         User user = null;
