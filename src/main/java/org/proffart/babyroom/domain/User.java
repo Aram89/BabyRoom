@@ -8,21 +8,38 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by Aram on 5/17/2015.
+ * @author Aram Kirakosyan.
+ *
+ * Domain class for user.
  */
 @Entity
-@Table(name="users")
+@Table(name="user")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
+    // User id.
     private long id;
+
+    // User email.;2
     private String email;
+
+    // Hashed password.
     private String passwordHash;
+
+    // User status(active, inactive, blocked).
     private String status;
+
+    // User name.
     private String firstName;
+
+    // User last name.
     private String lastName;
+
+    // User type.
     private String type;
 
     @Column(name="type")
@@ -36,7 +53,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    @Column(name = "usersId")
+    @Column(name = "userId")
     public long getId() {
         return id;
     }

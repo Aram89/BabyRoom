@@ -19,14 +19,14 @@ import java.sql.SQLException;
 /**
  * Controller for user requests.
  *
- * Created by Aram on 5/17/2015.
+ * @author Aram Kirakosyan.
  */
 @RequestMapping(value = RequestMappings.user)
 @Controller
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     /**
      * Service for checking email, returns status ok if not exist, else throws Appexception.

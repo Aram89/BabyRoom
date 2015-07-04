@@ -4,6 +4,7 @@ import org.proffart.babyroom.dao.UserDAO;
 import org.proffart.babyroom.domain.User;
 import org.proffart.babyroom.domain.users.Guest;
 import org.proffart.babyroom.Exception.AppException;
+import org.proffart.babyroom.domain.users.Parent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

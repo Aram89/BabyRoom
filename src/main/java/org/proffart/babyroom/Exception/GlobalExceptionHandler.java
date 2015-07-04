@@ -1,3 +1,4 @@
+
 package org.proffart.babyroom.Exception;
 
 import org.springframework.http.HttpStatus;
@@ -23,9 +24,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = Exception.class)
     public ResponseEntity exception(Exception e) {
-        return new ResponseEntity(HttpStatus.CONFLICT);
+        return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
 
     /**
      * Returning bad request status
