@@ -10,8 +10,15 @@ import java.security.NoSuchAlgorithmException;
  */
 public class Utils {
 
-    public static String hash (String key) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        String sha256hex = DigestUtils.sha256Hex(key);
-        return sha256hex;
+    public static String hash (String key) {
+        try {
+            String sha256hex = DigestUtils.sha256Hex(key);
+            return sha256hex;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        // Can't encode key, returning value.
+        return key;
+
     }
 }
