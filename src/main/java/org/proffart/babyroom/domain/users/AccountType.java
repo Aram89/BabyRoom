@@ -6,10 +6,10 @@ package org.proffart.babyroom.domain.users;
  * Created by Aram on 6/27/2015.
  */
 public enum AccountType {
-    PARENT(1, "parent"),
-    NANNY(2, "nanny"),
-    DOCTOR(3, "doctor"),
-    SHOP(4, "shop");
+    PARENT(1, "PARENT"),
+    EXPERT(2, "EXPERT"),
+    DOCTOR(3, "DOCTOR"),
+    SELLER(4, "SELLER");
 
     public int getType() {
         return type;

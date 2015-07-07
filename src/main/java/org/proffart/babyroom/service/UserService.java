@@ -19,7 +19,7 @@ public interface UserService {
      * @throws UnsupportedEncodingException
      * @throws NoSuchAlgorithmException
      */
-    void create (User user) throws SQLException, UnsupportedEncodingException, NoSuchAlgorithmException;
+    void create (User user) throws SQLException;
 
     /**
      * Check if email exists in db.

@@ -4,7 +4,7 @@ import org.proffart.babyroom.dao.UserDAO;
 import org.proffart.babyroom.domain.User;
 import org.proffart.babyroom.domain.users.Guest;
 import org.proffart.babyroom.Exception.AppException;
-import org.proffart.babyroom.domain.users.Parent;
+//import org.proffart.babyroom.domain.users.Parent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,8 +29,8 @@ public class UserServiceImpl implements UserService{
     private UserDAO userDAO;
 
 
-    public void create(User user) throws SQLException, UnsupportedEncodingException, NoSuchAlgorithmException {
-        userDAO.insert(user);
+    public void create(User user) throws SQLException {
+        userDAO.insert(UserFactory.getUser(user));
     }
 
     public Boolean emailExists(String email) throws SQLException {

@@ -45,7 +45,7 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
             throw new AppException(Error.WRONG_USER_NAME);
 
         // User exists, get password from db.
-        String pass = result.get(0).getPasswordHash();
+        String pass = result.get(0).getPassword();
 
         // Password is wrong.
         if (!pass.equals(Utils.hash(password)))

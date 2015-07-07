@@ -46,9 +46,17 @@ app.controller('loginController', ['$scope', 'userServices','$window', function(
     };
 
 
-
+    ///---End Login---///
+    ///---Forgot---///
+    $scope.forgotUser={};
+    $scope.forgotBlock={
+        showWarnings:false
+    };
     $scope.forgetPassword = function() {
-        userServices.forgetPassword($scope.user).success(function(){
+        if(!$scope.forgotBlock.showWarnings){
+            $scope.forgotBlock.showWarnings = true;
+        }
+        userServices.forgetPassword($scope.forgotUser).success(function(){
             window.location.reload();
         }).error(function(){
             console.error(arguments);

@@ -1,5 +1,6 @@
 package org.proffart.babyroom.domain;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.proffart.babyroom.domain.users.AccountType;
 import org.proffart.babyroom.utils.StringUtils;
 import org.proffart.babyroom.utils.Utils;
@@ -18,8 +19,11 @@ import java.security.NoSuchAlgorithmException;
  *
  * Domain class for user.
  */
+
 @Entity
 @Table(name="user")
+@Inheritance(strategy = InheritanceType.JOINED)
+
 public class User {
     // User id.
     private long id;
@@ -27,11 +31,19 @@ public class User {
     // User email.
     private String email;
 
-    // Hashed password.
-    private String passwordHash;
+    // Password.
+    private String password;
 
     // User status(active, inactive, blocked).
     private String status;
+
+    private String type;
+
+    /**
+     * No-arg constructor.
+     */
+    public User() {
+    }
 
     @Column(name = "type")
     public String getType() {
@@ -63,12 +75,12 @@ public class User {
     }
 
     @Column(name = "passwordHash")
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String password) {
+        this.password = Utils.hash(password);
     }
 
     @Column(name = "status")
@@ -79,9 +91,5 @@ public class User {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    // User type.
-    private String type;
-
 
 }
