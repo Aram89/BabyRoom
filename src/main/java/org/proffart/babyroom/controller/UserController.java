@@ -35,7 +35,7 @@ public class UserController {
      * @return returns status ok if not exist, else throws Appexception.
      */
     @RequestMapping(value = RequestMappings.checkEmail, method = RequestMethod.GET)
-    public ResponseEntity checkUserName(@RequestParam(value = "email") String email) throws AppException, SQLException {
+    public ResponseEntity checkEmail(@RequestParam(value = "email") String email) throws AppException, SQLException {
             if (userService.emailExists(email))
                 throw new AppException(Error.EMAIL_EXISTS);
 
@@ -52,7 +52,7 @@ public class UserController {
     @RequestMapping(value = RequestMappings.login, method = RequestMethod.POST)
     public ResponseEntity login(@RequestBody User user) throws IOException, NoSuchAlgorithmException, SQLException, AppException {
         // Check user credentials.
-        userService.login(user.getEmail(), user.getPasswordHash());
+        userService.login(user.getEmail(), user.getPassword());
         return null;
     }
 
@@ -61,12 +61,13 @@ public class UserController {
      *
      * @param user user.
      * @return status ok.
-     * @throws UnsupportedEncodingException UnsupportedEncodingException
      * @throws SQLException SQLException
-     * @throws NoSuchAlgorithmException NoSuchAlgorithmException
      */
     @RequestMapping(value = RequestMappings.createUser, method = RequestMethod.POST)
-    public ResponseEntity create(@RequestBody User user) throws UnsupportedEncodingException, SQLException, NoSuchAlgorithmException {
+    public ResponseEntity create(@RequestBody User user) throws SQLException, AppException {
+        // Secondary email validation.
+        checkEmail(user.getEmail());
+        // Create user.
         userService.create(user);
         return new ResponseEntity(HttpStatus.OK);
     }
