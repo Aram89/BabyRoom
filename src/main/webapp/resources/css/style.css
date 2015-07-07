@@ -289,6 +289,37 @@ input.ng-valid {
     display: block;
     vertical-align: middle;
 }
-.btn-login{
-    padding: 0px 44px !important;
+.btn-login {
+    font-size: 0px !important;
+    border-radius: 100%;
+    display: inline-block !important;
+    margin: 0 2px !important;
+    -webkit-transition: all !important;
+    -o-transition: all !important;
+    transition: all !important;
+    -webkit-transition-duration: 150ms !important;
+    transition-duration: 150ms !important;
+    vertical-align: top;
+    line-height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    -webkit-backface-visibility: hidden !important;
+    -moz-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+}
+.btn-login:hover {
+    border-radius: 10px !important;
+    padding: 0 5px !important;
+    font-size: 12px !important;
+    color:#fff;
+    font-weight: 500;
+}
+.btn-color-red{
+    background-color: #f44336 !important;
+}
+.btn-color-orange{
+    background-color: #ff9800 !important;
+}
+.form-top{
+    margin-top:-280px;
 }
