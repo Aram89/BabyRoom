@@ -277,22 +277,17 @@ input.ng-valid {
     display:block
 }
 .login-content .bottom-part .forms-container {
-    width: 350px;
+    width: 400px;
     position: relative;
     min-height: 60px;
     margin: auto;
-    top: -75px;
+    top: -180px;
     background-color: #FAFAFA;
     border-radius: 2px;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
     padding: 35px 55px 35px;
     display: block;
     vertical-align: middle;
-}
-.login-title{
-    text-align: center;
-    color: #4DB6AC;
-    font-weight: bold;
 }
 .btn-login{
     padding: 0px 44px !important;

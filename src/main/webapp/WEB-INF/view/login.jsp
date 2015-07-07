@@ -10,11 +10,6 @@
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="/resources/css/style.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
-    <style>
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-            display: none !important;
-        }
-    </style>
     <!-- CSS -->
 
 </head>
@@ -28,67 +23,52 @@
     </div>
 
     <div class="bottom-part">
-        <div class="forms-container">
-            <!-- Register -->
-            <div ng-show="shownForm=='register'" class="register-form">
-                <form name="registerForm" ng-submit="register()" novalidate>
-                    <md-input-container md-no-float>
+        <div layout layout-align="center center">
+            <div class="forms-container">
+
+                    <md-input-container class="md-icon-float" >
+                        <!-- Use floating label instead of placeholder -->
                         <label>Email</label>
-                        <ng-md-icon icon="email"></ng-md-icon>
-                        <input required ng-remote-check="user/check-email" name="email" type="email"
-                               ng-model="regUser.email"/>
-                        <div ng-messages="registerBlock.showWarnings && registerForm.email.$error">
-                            <div ng-message="required">Email is required</div>
-                            <div ng-message="email">Not valid email</div>
-                            <div ng-message="remote">Email is exists</div>
-                        </div>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                        <input ng-model="user.email" type="text">
                     </md-input-container>
-                    <md-input-container>
+
+                    <md-input-container class="md-icon-float" >
                         <label>Password</label>
-                        <input required name="password" type="password" ng-model="regUser.password"/>
-
-                        <div ng-messages="registerBlock.showWarnings && registerForm.password.$error">
-                            <div ng-message="required">Password Required</div>
-                        </div>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                        <input ng-model="user.password" type="password">
                     </md-input-container>
-                    <md-input-container>
-                        <label>Confirm Password</label>
-                        <input required compare-to="regUser.password" name="confirmPassword" type="password"
-                               ng-model="regUser.confirmPassword"/>
 
-                        <div ng-messages="registerBlock.showWarnings && registerForm.confirmPassword.$error">
-                            <div ng-message="required">Confirm Password required</div>
-                            <div ng-message="compareTo">Passwords don't match</div>
-                        </div>
+                    <md-input-container class="md-icon-float" >
+                        <label>Conform Password</label>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                        <input ng-model="user.password" type="password">
                     </md-input-container>
+
                     <md-button class="md-raised md-primary"
                                ng-disabled="register.showWarnings && registerForm.$invalid">
                         Submit
                     </md-button>
-                </form>
                 <div>
                     <md-button class="md-raised" ng-click="changeForm('login')">Login</md-button>
                     <md-button class="md-raised" ng-click="changeForm('forgot')">Forgot</md-button>
                 </div>
             </div>
+        </div>
 
+        <div layout layout-align="center center">
             <!-- Login -->
             <div ng-show="shownForm=='login'" class="login-form">
-                <form class="login-title">
-                    LOGIN CONTENT
-                </form>
                 <md-button ng-click="changeForm('register')" class="btn-login">Register</md-button>
                 <md-button ng-click="changeForm('forgot')" class="btn-login">Forgot</md-button>
             </div>
             <!-- Forgot Password -->
             <div ng-show="shownForm=='forgot'" class="forgot-form">
-                <form class="login-title">
-                    FORGOT CONTENT
-                </form>
                 <md-button ng-click="changeForm('login')" class="btn-login">Login</md-button>
                 <md-button ng-click="changeForm('register')" class="btn-login">Register</md-button>
             </div>
         </div>
+
     </div>
 </div>
 <%@include file="widgets/old-browser.jsp" %>
