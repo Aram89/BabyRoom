@@ -8,8 +8,9 @@
     <title>Baby Room</title>
 
     <!-- Vendor CSS -->
+    <%@include file="widgets/style-includes.jsp" %>
+
     <link rel="stylesheet" href="/resources/css/style.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
     <style>
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
             display: none !important;
@@ -30,9 +31,9 @@
     <div class="bottom-part">
         <div class="forms-container">
             <!-- Register -->
-            <div ng-show="shownForm=='register'" class="register-form">
+            <div ng-show="shownForm=='register'">
                 <form name="registerForm" ng-submit="register()" novalidate>
-                    <md-input-container md-no-float>
+                    <md-input-container>
                         <label>Email</label>
                         <ng-md-icon icon="email"></ng-md-icon>
                         <input required ng-remote-check="user/check-email" name="email" type="email"
@@ -62,7 +63,7 @@
                         </div>
                     </md-input-container>
                     <md-button class="md-raised md-primary"
-                               ng-disabled="register.showWarnings && registerForm.$invalid">
+                               ng-disabled="registerBlock.showWarnings && registerForm.$invalid">
                         Submit
                     </md-button>
                 </form>
@@ -74,16 +75,45 @@
 
             <!-- Login -->
             <div ng-show="shownForm=='login'" class="login-form">
-                <form class="login-title">
-                    LOGIN CONTENT
+                <form class="login-title"  name="loginForm" ng-submit="login()" novalidate>
+                    <md-input-container>
+                        <ng-md-icon icon="email"></ng-md-icon>
+                        <label>Email</label>
+                        <input required type="email" name="email" ng-model="user.email"/>
+                        <div ng-messages="loginBlock.showWarnings && loginForm.email.$error">
+                            <div ng-message="required">Email Required</div>
+                            <div ng-message="email">Not valid email</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Password</label>
+                        <input required type="password" name="password" ng-model="user.password"/>
+                        <div ng-messages="loginBlock.showWarnings && loginForm.password.$error">
+                            <div ng-message="required">Password Required</div>
+                        </div>
+                    </md-input-container>
+                    <md-button class="md-raised md-primary" ng-disabled="loginBlock.showWarnings && loginForm.$invalid">
+                        Login
+                    </md-button>
                 </form>
                 <md-button ng-click="changeForm('register')" class="btn-login">Register</md-button>
                 <md-button ng-click="changeForm('forgot')" class="btn-login">Forgot</md-button>
             </div>
             <!-- Forgot Password -->
             <div ng-show="shownForm=='forgot'" class="forgot-form">
-                <form class="login-title">
-                    FORGOT CONTENT
+                <form class="login-title" novalidate name="forgotForm"  ng-submit="forgetPassword()">
+                    <md-input-container>
+                        <label>Email</label>
+                        <ng-md-icon  icon="email"></ng-md-icon>
+                        <input required type="email" name="email"  ng-model="forgotUser.email"/>
+                        <div ng-messages="forgotBlock.showWarnings && forgotForm.email.$error">
+                            <div ng-message="required">Email is required</div>
+                            <div ng-message="email">Not valid email</div>
+                        </div>
+                    </md-input-container>
+                    <md-button class="md-raised md-primary" ng-disabled="forgotBlock.showWarnings && forgotForm.$invalid">
+                        Send
+                    </md-button>
                 </form>
                 <md-button ng-click="changeForm('login')" class="btn-login">Login</md-button>
                 <md-button ng-click="changeForm('register')" class="btn-login">Register</md-button>
