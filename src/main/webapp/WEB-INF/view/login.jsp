@@ -11,7 +11,6 @@
     <%@include file="widgets/style-includes.jsp" %>
     <link rel="stylesheet" href="/resources/css/style.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
-    <link rel="stylesheet" type="text/css" href="/resources/font-awesome-4.3.0/css/font-awesome.min.css"/>
 
 </head>
 
@@ -32,8 +31,8 @@
                     <form name="registerForm" ng-submit="register()" novalidate>
 
                         <md-input-container  class="md-icon-float">
-                            <i class="fa fa-envelope fa-top"></i>
                             <label>Email</label>
+                            <md-icon md-font-icon="fa-envelope" class="fa"></md-icon>
                             <input required ng-remote-check="user/check-email" name="email" type="email"
                                    ng-model="regUser.email"/>
                             <div ng-messages="registerBlock.showWarnings && registerForm.email.$error">
@@ -44,8 +43,8 @@
                         </md-input-container>
 
                         <md-input-container class="md-icon-float">
-                            <i class="fa fa-unlock fa-top"></i>
                             <label>Password</label>
+                            <md-icon md-font-icon="fa-unlock" class="fa"></md-icon>
                             <input required name="password" type="password" ng-model="regUser.password"/>
 
                             <div ng-messages="registerBlock.showWarnings && registerForm.password.$error">
@@ -54,8 +53,8 @@
                         </md-input-container>
 
                         <md-input-container class="md-icon-float">
-                            <i class="fa fa-unlock fa-top"></i>
                             <label>Confirm Password</label>
+                            <md-icon md-font-icon="fa-unlock" class="fa"></md-icon>
                             <input required compare-to="regUser.password" name="confirmPassword" type="password"
                                    ng-model="regUser.confirmPassword"/>
 
@@ -75,8 +74,8 @@
                 <div ng-show="shownForm=='login'" class="login-form">
                     <form class="login-title"  name="loginForm" ng-submit="login()" novalidate>
                         <md-input-container class="md-icon-float">
-                            <i class="fa fa-envelope fa-top"></i>
                             <label>Email</label>
+                            <md-icon md-font-icon="fa-envelope" class="fa"></md-icon>
                             <input required type="email" name="email" ng-model="user.email"/>
                             <div ng-messages="loginBlock.showWarnings && loginForm.email.$error">
                                 <div ng-message="required">Email Required</div>
@@ -85,8 +84,8 @@
                         </md-input-container>
 
                         <md-input-container class="md-icon-float">
-                            <i class="fa fa-unlock fa-top"></i>
                             <label>Password</label>
+                            <md-icon md-font-icon="fa-unlock" class="fa"></md-icon>
                             <input required type="password" name="password" ng-model="user.password"/>
                             <div ng-messages="loginBlock.showWarnings && loginForm.password.$error">
                                 <div ng-message="required">Password Required</div>
@@ -103,8 +102,8 @@
                 <div ng-show="shownForm=='forgot'" class="forgot-form">
                     <form class="login-title" novalidate name="forgotForm"  ng-submit="forgetPassword()">
                         <md-input-container class="md-icon-float">
-                            <i class="fa fa-envelope fa-top"></i>
                             <label>Email</label>
+                            <md-icon md-font-icon="fa-envelope" class="fa"></md-icon>
                             <input required type="email" name="email"  ng-model="forgotUser.email"/>
                             <div ng-messages="forgotBlock.showWarnings && forgotForm.email.$error">
                                 <div ng-message="required">Email is required</div>
@@ -124,7 +123,7 @@
         <div layout layout-align="center center">
             <div class="form-top">
                 <div ng-show="shownForm=='register'">
-                    <md-button ng-click="changeForm('login')" class="btn-login btn-color-red">Login</md-button>
+                    <md-button ng-click="changeForm('login')" class="btn-login btn-color-green">Login</md-button>
                     <md-button ng-click="changeForm('forgot')" class="btn-login btn-color-orange">Forgot</md-button>
                 </div>
                 <div ng-show="shownForm=='login'">
