@@ -11,7 +11,7 @@
     <%@include file="widgets/style-includes.jsp" %>
     <link rel="stylesheet" href="/resources/css/style.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
-    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/resources/font-awesome-4.3.0/css/font-awesome.min.css"/>
 
 </head>
 
@@ -27,13 +27,13 @@
         <div layout layout-align="center center">
             <div class="forms-container">
 
-
                 <!-- Register -->
                 <div ng-show="shownForm=='register'">
                     <form name="registerForm" ng-submit="register()" novalidate>
-                        <md-input-container>
+
+                        <md-input-container  class="md-icon-float">
+                            <i class="fa fa-envelope fa-top"></i>
                             <label>Email</label>
-                            <ng-md-icon icon="email"></ng-md-icon>
                             <input required ng-remote-check="user/check-email" name="email" type="email"
                                    ng-model="regUser.email"/>
                             <div ng-messages="registerBlock.showWarnings && registerForm.email.$error">
@@ -42,7 +42,9 @@
                                 <div ng-message="remote">Email is exists</div>
                             </div>
                         </md-input-container>
-                        <md-input-container>
+
+                        <md-input-container class="md-icon-float">
+                            <i class="fa fa-unlock fa-top"></i>
                             <label>Password</label>
                             <input required name="password" type="password" ng-model="regUser.password"/>
 
@@ -50,7 +52,9 @@
                                 <div ng-message="required">Password Required</div>
                             </div>
                         </md-input-container>
-                        <md-input-container>
+
+                        <md-input-container class="md-icon-float">
+                            <i class="fa fa-unlock fa-top"></i>
                             <label>Confirm Password</label>
                             <input required compare-to="regUser.password" name="confirmPassword" type="password"
                                    ng-model="regUser.confirmPassword"/>
@@ -60,17 +64,18 @@
                                 <div ng-message="compareTo">Passwords don't match</div>
                             </div>
                         </md-input-container>
-                        <md-button class="md-raised md-primary"
+                        <md-button class="md-raised md-primary btn-blue"
                                    ng-disabled="registerBlock.showWarnings && registerForm.$invalid">
                             Submit
                         </md-button>
                     </form>
                 </div>
+
                 <!-- Login -->
                 <div ng-show="shownForm=='login'" class="login-form">
                     <form class="login-title"  name="loginForm" ng-submit="login()" novalidate>
-                        <md-input-container>
-                            <ng-md-icon icon="email"></ng-md-icon>
+                        <md-input-container class="md-icon-float">
+                            <i class="fa fa-envelope fa-top"></i>
                             <label>Email</label>
                             <input required type="email" name="email" ng-model="user.email"/>
                             <div ng-messages="loginBlock.showWarnings && loginForm.email.$error">
@@ -78,31 +83,36 @@
                                 <div ng-message="email">Not valid email</div>
                             </div>
                         </md-input-container>
-                        <md-input-container>
+
+                        <md-input-container class="md-icon-float">
+                            <i class="fa fa-unlock fa-top"></i>
                             <label>Password</label>
                             <input required type="password" name="password" ng-model="user.password"/>
                             <div ng-messages="loginBlock.showWarnings && loginForm.password.$error">
                                 <div ng-message="required">Password Required</div>
                             </div>
                         </md-input-container>
-                        <md-button class="md-raised md-primary" ng-disabled="loginBlock.showWarnings && loginForm.$invalid">
+
+                        <md-button class="md-raised md-primary btn-blue" ng-disabled="loginBlock.showWarnings && loginForm.$invalid">
                             Login
                         </md-button>
                     </form>
                 </div>
+
                 <!-- Forgot Password -->
                 <div ng-show="shownForm=='forgot'" class="forgot-form">
                     <form class="login-title" novalidate name="forgotForm"  ng-submit="forgetPassword()">
-                        <md-input-container>
+                        <md-input-container class="md-icon-float">
+                            <i class="fa fa-envelope fa-top"></i>
                             <label>Email</label>
-                            <ng-md-icon  icon="email"></ng-md-icon>
                             <input required type="email" name="email"  ng-model="forgotUser.email"/>
                             <div ng-messages="forgotBlock.showWarnings && forgotForm.email.$error">
                                 <div ng-message="required">Email is required</div>
                                 <div ng-message="email">Not valid email</div>
                             </div>
                         </md-input-container>
-                        <md-button class="md-raised md-primary" ng-disabled="forgotBlock.showWarnings && forgotForm.$invalid">
+
+                        <md-button class="md-raised md-primary btn-blue" ng-disabled="forgotBlock.showWarnings && forgotForm.$invalid">
                             Send
                         </md-button>
                     </form>
@@ -122,8 +132,8 @@
                     <md-button ng-click="changeForm('forgot')" class="btn-login btn-color-orange">Forgot</md-button>
                 </div>
                 <div ng-show="shownForm=='forgot'">
-                    <md-button ng-click="changeForm('login')" class="btn-login btn-color-red">Login</md-button>
-                    <md-button ng-click="changeForm('register')" class="btn-login btn-color-orange">Register</md-button>
+                    <md-button ng-click="changeForm('login')" class="btn-login btn-color-green">Login</md-button>
+                    <md-button ng-click="changeForm('register')" class="btn-login btn-color-red">Register</md-button>
                 </div>
             </div>
         </div>
@@ -135,7 +145,6 @@
 <!-- Javascript Libraries -->
 <script src="/resources/bower_components/jquery/src/jquery.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
-
 <!--script src="/resources/js/functions.js"></script-->
 
 <%@include file="widgets/angular-includes.jsp" %>

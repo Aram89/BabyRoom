@@ -268,7 +268,7 @@ input.ng-valid {
     box-sizing: border-box;
 }
 .login-content .bottom-part {
-    background-color: #4DB6AC;
+    background-color: #EEEEEE;
     min-height: 50%;
     padding: 10px;
 }
@@ -315,11 +315,22 @@ input.ng-valid {
     font-weight: 500;
 }
 .btn-color-red{
-    background-color: #f44336 !important;
+    background-color: #F44336 !important;
 }
 .btn-color-orange{
-    background-color: #ff9800 !important;
+    background-color: #FF9800 !important;
+}
+.btn-color-green{
+    background-color: #4CAF50 !important;
 }
 .form-top{
     margin-top:-280px;
+}
+.fa-top{
+    margin-top: 25px;
+    margin-bottom: -25px;
+}
+.btn-blue{
+    background-color: #4DB6AC !important;
+    font-weight: bold !important;
 }
