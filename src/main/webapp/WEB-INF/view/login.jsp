@@ -71,35 +71,35 @@
                 </div>
 
                 <!-- Login -->
-                <div ng-show="shownForm=='login'" class="login-form">
-                    <form class="login-title"  name="loginForm" ng-submit="login()" novalidate>
-                        <md-input-container class="md-icon-float">
-                            <label>Email</label>
-                            <md-icon md-font-icon="fa-envelope" class="fa"></md-icon>
-                            <input required type="email" name="email" ng-model="user.email"/>
-                            <div ng-messages="loginBlock.showWarnings && loginForm.email.$error">
-                                <div ng-message="required">Email Required</div>
-                                <div ng-message="email">Not valid email</div>
-                            </div>
-                        </md-input-container>
+                    <div ng-show="shownForm=='login'" class="login-form">
+                        <form class="login-title"  name="loginForm" ng-submit="login()" novalidate>
+                            <md-input-container class="md-icon-float">
+                                <label>Email</label>
+                                <md-icon md-font-icon="fa-envelope" class="fa"></md-icon>
+                                <input required type="email" name="email" ng-model="user.email"/>
+                                <div ng-messages="loginBlock.showWarnings && loginForm.email.$error">
+                                    <div ng-message="required">Email Required</div>
+                                    <div ng-message="email">Not valid email</div>
+                                </div>
+                            </md-input-container>
 
-                        <md-input-container class="md-icon-float">
-                            <label>Password</label>
-                            <md-icon md-font-icon="fa-unlock" class="fa"></md-icon>
-                            <input required type="password" name="password" ng-model="user.password"/>
-                            <div ng-messages="loginBlock.showWarnings && loginForm.password.$error">
-                                <div ng-message="required">Password Required</div>
-                            </div>
-                        </md-input-container>
+                            <md-input-container class="md-icon-float">
+                                <label>Password</label>
+                                <md-icon md-font-icon="fa-unlock" class="fa"></md-icon>
+                                <input required type="password" name="password" ng-model="user.password"/>
+                                <div ng-messages="loginBlock.showWarnings && loginForm.password.$error">
+                                    <div ng-message="required">Password Required</div>
+                                </div>
+                            </md-input-container>
 
-                        <md-button class="md-raised md-primary btn-blue" ng-disabled="loginBlock.showWarnings && loginForm.$invalid">
-                            Login
-                        </md-button>
-                    </form>
-                </div>
+                            <md-button class="md-raised md-primary btn-blue" ng-disabled="loginBlock.showWarnings && loginForm.$invalid">
+                                Login
+                            </md-button>
+                        </form>
+                    </div>
 
                 <!-- Forgot Password -->
-                <div ng-show="shownForm=='forgot'" class="forgot-form">
+                <div ng-show="shownForm=='forgot'" class="forgot-form ">
                     <form class="login-title" novalidate name="forgotForm"  ng-submit="forgetPassword()">
                         <md-input-container class="md-icon-float">
                             <label>Email</label>
@@ -116,26 +116,25 @@
                         </md-button>
                     </form>
                 </div>
-
-            </div>
-
-        </div>
-        <div layout layout-align="center center">
-            <div class="form-top">
-                <div ng-show="shownForm=='register'">
-                    <md-button ng-click="changeForm('login')" class="btn-login btn-color-green">Login</md-button>
-                    <md-button ng-click="changeForm('forgot')" class="btn-login btn-color-orange">Forgot</md-button>
-                </div>
-                <div ng-show="shownForm=='login'">
-                    <md-button ng-click="changeForm('register')" class="btn-login btn-color-red">Register</md-button>
-                    <md-button ng-click="changeForm('forgot')" class="btn-login btn-color-orange">Forgot</md-button>
-                </div>
-                <div ng-show="shownForm=='forgot'">
-                    <md-button ng-click="changeForm('login')" class="btn-login btn-color-green">Login</md-button>
-                    <md-button ng-click="changeForm('register')" class="btn-login btn-color-red">Register</md-button>
+                <div layout layout-align="center center">
+                    <div class="form-top">
+                        <div ng-show="shownForm=='register'">
+                            <md-button ng-click="changeForm('login')" class="btn-login btn-color-green">Login</md-button>
+                            <md-button ng-click="changeForm('forgot')" class="btn-login btn-color-orange">Forgot</md-button>
+                        </div>
+                        <div ng-show="shownForm=='login'">
+                            <md-button ng-click="changeForm('register')" class="btn-login btn-color-red">Register</md-button>
+                            <md-button ng-click="changeForm('forgot')" class="btn-login btn-color-orange">Forgot</md-button>
+                        </div>
+                        <div ng-show="shownForm=='forgot'">
+                            <md-button ng-click="changeForm('login')" class="btn-login btn-color-green">Login</md-button>
+                            <md-button ng-click="changeForm('register')" class="btn-login btn-color-red">Register</md-button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 

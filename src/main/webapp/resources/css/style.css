@@ -281,7 +281,9 @@ input.ng-valid {
     position: relative;
     min-height: 60px;
     margin: auto;
-    top: -180px;
+    top: 50%;
+    transform: translateX(0%) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(-50%);
     background-color: #FAFAFA;
     border-radius: 2px;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
@@ -323,12 +325,11 @@ input.ng-valid {
 .btn-color-green{
     background-color: #4CAF50 !important;
 }
-.form-top{
-    margin-top:-280px;
-}
-.fa-top{
-    margin-top: 25px;
-    margin-bottom: -25px;
+.form-top {
+    top: 110%;
+    position: absolute;
+    transform: translateX(-40%) translateY(-10%);
+    -webkit-transform: translateX(-40%) translateY(-10%);
 }
 .btn-blue{
     background-color: #4DB6AC !important;
