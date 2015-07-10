@@ -37,6 +37,8 @@ public interface UserService {
      * @param password password.
      * @throws SQLException SQLException.
      */
-    void login (String userName, String password) throws SQLException, UnsupportedEncodingException, NoSuchAlgorithmException, AppException;
+    long login (String userName, String password) throws SQLException,AppException;
+
+    void saveParent(long id);
 
 }

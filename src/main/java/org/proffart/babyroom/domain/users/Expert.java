@@ -20,15 +20,4 @@ public class Expert extends User {
     public Expert(){
 
     }
-
-    /**
-     * Constructor for creating Expert from existing user object.
-     *
-     * @param user user object from create request.
-     */
-    public Expert(User user) {
-        this.setEmail(user.getEmail());
-        this.setPassword(user.getPassword());
-        this.setType(user.getType());
-    }
 }

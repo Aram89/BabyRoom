@@ -20,15 +20,4 @@ public class Seller extends User {
     public Seller(){
 
     }
-
-    /**
-     * Constructor for creating Seller from existing user object.
-     *
-     * @param user user object from
-     */
-    public Seller(User user) {
-        this.setEmail(user.getEmail());
-        this.setPassword(user.getPassword());
-        this.setType(user.getType());
-    }
 }

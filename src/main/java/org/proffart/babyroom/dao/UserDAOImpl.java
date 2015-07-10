@@ -4,6 +4,9 @@ import org.hibernate.Query;
 import org.proffart.babyroom.domain.User;
 import org.proffart.babyroom.Exception.*;
 import org.proffart.babyroom.Exception.Error;
+import org.proffart.babyroom.domain.users.Expert;
+import org.proffart.babyroom.domain.users.Parent;
+import org.proffart.babyroom.domain.users.Seller;
 import org.proffart.babyroom.utils.Utils;
 import org.springframework.stereotype.Repository;
 
@@ -34,10 +37,10 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
     }
 
     @Override
-    public User login(String userName, String password) throws AppException, UnsupportedEncodingException, NoSuchAlgorithmException {
-        String hql = "FROM org.proffart.babyroom.domain.User WHERE userName = :userName";
+    public User login(String email, String password) throws AppException {
+        String hql = "FROM org.proffart.babyroom.domain.User WHERE email = :email";
         Query query = getSession().createQuery(hql);
-        query.setParameter("userName",userName);
+        query.setParameter("email",email);
         List<User> result = query.list();
 
         // Username is wrong.
@@ -53,5 +56,20 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 
         // Good credentials, return user.
         return result.get(0);
+    }
+
+    @Override
+    public Parent getParent(long id) {
+        return (Parent)getSession().load(Parent.class, id);
+    }
+
+    @Override
+    public Seller getSeller(long id) {
+        return (Seller)getSession().load(Seller.class, id);
+    }
+
+    @Override
+    public Expert getExpert(long id) {
+        return (Expert)getSession().load(Expert.class, id);
     }
 }
