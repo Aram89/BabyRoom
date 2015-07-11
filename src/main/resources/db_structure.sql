@@ -61,9 +61,8 @@ CREATE TABLE `parent` (
 CREATE TABLE `children` (
   `childrenId` INT(11) NOT NULL,
   `parentId` INT(11) NOT NULL,
-  PRIMARY KEY (`childrenId`, `parentId`),
+  PRIMARY KEY (`childrenId`),
   UNIQUE INDEX `childrenId_UNIQUE` (`childrenId` ASC),
-  UNIQUE INDEX `parentId_UNIQUE` (`parentId` ASC),
   CONSTRAINT `fk_children_user`
   FOREIGN KEY (`childrenId`)
   REFERENCES `user` (`userId`)
@@ -85,11 +84,11 @@ CREATE TABLE `expert` (
 );
 
 CREATE TABLE `seller` (
-  `doctorId` INT(11) NOT NULL,
-  PRIMARY KEY (`doctorId`),
-  UNIQUE INDEX `doctorId_UNIQUE` (`doctorId` ASC),
+  `sellerId` INT(11) NOT NULL,
+  PRIMARY KEY (`sellerId`),
+  UNIQUE INDEX `sellerId_UNIQUE` (`sellerId` ASC),
   CONSTRAINT `fk_doctor_user`
-  FOREIGN KEY (`doctorId`)
+  FOREIGN KEY (`sellerId`)
   REFERENCES `user` (`userId`)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
