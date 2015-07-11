@@ -335,3 +335,16 @@ input.ng-valid {
     background-color: #4DB6AC !important;
     font-weight: bold !important;
 }
+
+
+/* animations */
+/*.forgot-form.ng-hide-remove,
+.login-form.ng-hide-remove,
+.register-form.ng-hide-remove {
+    animation: fadeInLeft 5s;
+}
+.forgot-form.ng-hide-add,
+.login-form.ng-hide-add,
+.register-form.ng-hide-add {
+    animation: fadeOutLeft 5s;
+}*/

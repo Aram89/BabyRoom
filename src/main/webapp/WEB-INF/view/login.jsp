@@ -24,7 +24,7 @@
         <div layout layout-align="center center">
             <div class="forms-container">
                 <!-- Register -->
-                <div ng-show="shownForm=='register'">
+                <div ng-show="shownForm=='register'" class="register-form">
                     <form name="registerForm" ng-submit="register()" novalidate>
 
                         <md-input-container  class="md-icon-float">
@@ -96,7 +96,7 @@
                     </div>
 
                 <!-- Forgot Password -->
-                <div ng-show="shownForm=='forgot'" class="forgot-form ">
+                <div ng-show="shownForm=='forgot'" class="forgot-form">
                     <form class="login-title" novalidate name="forgotForm"  ng-submit="forgetPassword()">
                         <md-input-container class="md-icon-float">
                             <label>Email</label>
