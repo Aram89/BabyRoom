@@ -87,7 +87,7 @@ CREATE TABLE `seller` (
   `sellerId` INT(11) NOT NULL,
   PRIMARY KEY (`sellerId`),
   UNIQUE INDEX `sellerId_UNIQUE` (`sellerId` ASC),
-  CONSTRAINT `fk_doctor_user`
+  CONSTRAINT `fk_seller_user`
   FOREIGN KEY (`sellerId`)
   REFERENCES `user` (`userId`)
     ON DELETE CASCADE ON UPDATE CASCADE

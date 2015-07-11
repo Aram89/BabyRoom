@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Aram Kirakosyan.
  */
 @Entity
-@PrimaryKeyJoinColumn(name = "doctorId")
+@PrimaryKeyJoinColumn(name = "sellerId")
 public class Seller extends User {
 
     /**
