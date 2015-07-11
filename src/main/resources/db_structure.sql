@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS `post`;
 DROP TABLE IF EXISTS `action`;
 DROP TABLE IF EXISTS `seller`;
 DROP TABLE IF EXISTS `expert`;
-DROP TABLE IF EXISTS `children`;
+DROP TABLE IF EXISTS `child`;
 DROP TABLE IF EXISTS `parent`;
 DROP TABLE IF EXISTS `city`;
 DROP TABLE IF EXISTS `country`;
@@ -19,13 +19,10 @@ CREATE TABLE `user` (
   `login` CHAR(50) NOT NULL,
   `email` CHAR(50) NOT NULL,
   `passwordHash` VARCHAR(64) NOT NULL,
-  `firstName` VARCHAR(50) NOT NULL,
-  `lastName` VARCHAR(45) NOT NULL,
-  `gender` ENUM('MALE', 'FEMALE') NOT NULL,
   `countryCode` CHAR(2),
   `cityId` INT(11),
-  `status` ENUM('ACTIVE', 'INACTIVE', 'BLOCKED', 'DELETED') NOT NULL,
-  `type` ENUM('PARENT', 'CHILDREN', 'expert', 'seller') NOT NULL,
+  `status` ENUM('ACTIVE', 'INACTIVE', 'BLOCKED', 'DELETED'),
+  `type` ENUM('PARENT', 'child', 'expert', 'seller'),
   PRIMARY KEY (`userId`, `login`, `email`),
   UNIQUE INDEX `userId_UNIQUE` (`userId` ASC),
   UNIQUE INDEX `login_UNIQUE` (`login` ASC),
@@ -58,16 +55,19 @@ CREATE TABLE `parent` (
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE `children` (
-  `childrenId` INT(11) NOT NULL,
+CREATE TABLE `child` (
+  `childId` INT(11) NOT NULL,
   `parentId` INT(11) NOT NULL,
-  PRIMARY KEY (`childrenId`),
-  UNIQUE INDEX `childrenId_UNIQUE` (`childrenId` ASC),
-  CONSTRAINT `fk_children_user`
-  FOREIGN KEY (`childrenId`)
+  `firstName` VARCHAR(50),
+  `lastName` VARCHAR(45),
+  `gender` ENUM('MALE', 'FEMALE'),
+  PRIMARY KEY (`childId`),
+  UNIQUE INDEX `childId_UNIQUE` (`childId` ASC),
+  CONSTRAINT `fk_child_user`
+  FOREIGN KEY (`childId`)
   REFERENCES `user` (`userId`)
     ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_children_parent`
+  CONSTRAINT `fk_child_parent`
   FOREIGN KEY (`parentId`)
   REFERENCES `parent` (`parentId`)
     ON DELETE CASCADE ON UPDATE CASCADE
