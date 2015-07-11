@@ -25,7 +25,6 @@
     <div class="bottom-part">
         <div layout layout-align="center center">
             <div class="forms-container">
-
                 <!-- Register -->
                 <div ng-show="shownForm=='register'">
                     <form name="registerForm" ng-submit="register()" novalidate>
@@ -65,7 +64,7 @@
                         </md-input-container>
                         <md-button class="md-raised md-primary btn-blue"
                                    ng-disabled="registerBlock.showWarnings && registerForm.$invalid">
-                            Submit
+                            Register
                         </md-button>
                     </form>
                 </div>

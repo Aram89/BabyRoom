@@ -39,6 +39,9 @@ public class User {
 
     private String type;
 
+    // Login.
+    private String login;
+
     /**
      * No-arg constructor.
      */
@@ -72,6 +75,7 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+        setLogin(email);
     }
 
     @Column(name = "passwordHash")
@@ -92,4 +96,12 @@ public class User {
         this.status = status;
     }
 
+    @Column(name = "login")
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
 }

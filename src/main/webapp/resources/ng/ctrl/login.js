@@ -38,11 +38,15 @@ app.controller('loginController', ['$scope', 'userServices','$window', function(
         if(!$scope.loginBlock.showWarnings){
             $scope.loginBlock.showWarnings = true;
         }
-        userServices.signIn($scope.user).success(function(){
-            window.location.reload();
-        }).error(function(){
-            console.error(arguments);
-        });
+        if(!$scope.loginForm.$invalid) {
+            userServices.signIn($scope.user).success(function (s, d) {
+                //window.location.reload();
+                console.log(s, d);
+            }).error(function (s, d) {
+                console.log(s, d);
+                console.error(arguments);
+            });
+        }
     };
 
 
