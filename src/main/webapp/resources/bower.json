@@ -4,11 +4,12 @@
   "dependencies": {
     "jquery":"2.1.4",
     "fontawesome" : "*",
-    "angular": "1.4.1",
+    "angular": "1.4.2",
     "angular-material": "*",
     "angular-material-icons":"*",
     "angular-route": "*",
     "angular-messages":"*",
-    "angular-resource": "*"
+    "angular-resource": "*",
+    "animate.css": "*"
   }
 }
