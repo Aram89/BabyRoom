@@ -9,8 +9,6 @@
 
     <!-- Vendor CSS -->
     <%@include file="widgets/style-includes.jsp" %>
-    <link rel="stylesheet" href="/resources/css/style.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
 
 </head>
 
@@ -139,12 +137,7 @@
 
 <%@include file="widgets/old-browser.jsp" %>
 
-<!-- Javascript Libraries -->
-<script src="/resources/bower_components/jquery/src/jquery.js"></script>
-<script src="/resources/js/bootstrap.min.js"></script>
-<!--script src="/resources/js/functions.js"></script-->
-
-<%@include file="widgets/angular-includes.jsp" %>
+<%@include file="widgets/script-includes.jsp" %>
 
 </body>
 

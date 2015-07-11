@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<script src="/resources/bower_composnents/jquery/src/jquery.js"></script>
+
 <!--scripts-->
 <script src="/resources/bower_components/angular/angular.js"></script>
 <script src="/resources/bower_components/angular-animate/angular-animate.js"></script>
