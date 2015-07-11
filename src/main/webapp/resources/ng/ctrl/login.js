@@ -1,7 +1,6 @@
 app.controller('loginController', ['$scope', 'userServices','$window', function($scope, userServices,$window) {
     'use strict';
     ///---Functions---///
-
     $scope.shownForm = 'login';
     $scope.changeForm = function(form){
         if(form=='forgot'){
@@ -40,7 +39,7 @@ app.controller('loginController', ['$scope', 'userServices','$window', function(
         }
         if(!$scope.loginForm.$invalid) {
             userServices.signIn($scope.user).success(function (s, d) {
-                //window.location.reload();
+                window.location.reload();
                 console.log(s, d);
             }).error(function (s, d) {
                 console.log(s, d);
@@ -66,7 +65,4 @@ app.controller('loginController', ['$scope', 'userServices','$window', function(
             console.error(arguments);
         });
     }
-
-
-
 }]);
