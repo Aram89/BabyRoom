@@ -61,7 +61,7 @@ public class UserController {
     public ResponseEntity login(@RequestBody Parent parent) throws IOException, SQLException, AppException {
         // Check user credentials.
         long id = userService.login(parent.getEmail(), parent.getPassword());
-        //userService.saveParent(id);
+        userService.saveParent(id);
         return new ResponseEntity(HttpStatus.OK);
     }
 
