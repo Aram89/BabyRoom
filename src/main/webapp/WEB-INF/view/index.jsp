@@ -488,7 +488,7 @@
 <script src="/resources/js/init-effects.js"></script>
 
 
-<%@include file="widgets/angular-includes.jsp"%>
+<%@include file="widgets/script-includes.jsp"%>
 <script src='resources/ng/ctrl/page.js'></script>
 <script src='resources/ng/ctrl/market.js'></script>
 <script src='resources/ng/ctrl/social.js'></script>
