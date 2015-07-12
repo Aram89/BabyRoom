@@ -39,7 +39,10 @@
       <md-radio-button value="female">Female</md-radio-button>
     </md-radio-group>
     <div>
-      <datepicker ng-model="childData.birthday"></datepicker>
+      <input is-open="calendar.opened" max-date="calendar.maxDate" min-date="calendar.minDate" datepicker-popup ng-model="childData.birthday" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="calendar.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
     </div>
     <md-button class="md-raised md-primary btn-blue"
                ng-disabled="childDataBlock.showWarnings && childDataForm.$invalid">
