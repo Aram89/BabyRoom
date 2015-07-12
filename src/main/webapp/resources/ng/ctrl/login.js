@@ -22,10 +22,12 @@ app.controller('loginController', ['$scope', 'userServices','$window', function(
         if(!$scope.registerBlock.showWarnings){
             $scope.registerBlock.showWarnings =true;
         }
-        userServices.register($scope.regUser).success(function(){
-            window.location.reload();
-        }).error(function(){
-        });
+        if(!$scope.registerForm.$invalid) {
+            userServices.register($scope.regUser).success(function () {
+                window.location.reload();
+            }).error(function () {
+            });
+        }
     };
     ///----End Register----///
     ///---Login---///
@@ -59,10 +61,12 @@ app.controller('loginController', ['$scope', 'userServices','$window', function(
         if(!$scope.forgotBlock.showWarnings){
             $scope.forgotBlock.showWarnings = true;
         }
-        userServices.forgetPassword($scope.forgotUser).success(function(){
-            window.location.reload();
-        }).error(function(){
-            console.error(arguments);
-        });
+        if(!$scope.forgotForm.$invalid) {
+            userServices.forgetPassword($scope.forgotUser).success(function () {
+                window.location.reload();
+            }).error(function () {
+                console.error(arguments);
+            });
+        }
     }
 }]);
