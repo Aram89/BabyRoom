@@ -25,7 +25,6 @@ app.directive('ngRemoteCheck',['$http', function($http) {
                     }, 300)
                 }
                 scope.$watch(attr.ngModel, function (n) {
-                    console.log(n);
                     if(n){
                         validate();
                     }
