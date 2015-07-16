@@ -5,6 +5,8 @@
     "jquery":"2.1.4",
     "fontawesome" : "*",
     "angular": "1.4.2",
+    "angular-bootstrap":"*",
+    "bootstrap":"*",
     "angular-material": "*",
     "angular-material-icons":"*",
     "angular-route": "*",

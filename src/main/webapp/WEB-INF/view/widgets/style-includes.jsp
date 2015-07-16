@@ -4,3 +4,4 @@
 <link rel="stylesheet" href="/resources/bower_components/fontawesome/css/font-awesome.css">
 <link rel="stylesheet" href="/resources/bower_components/animate.css/animate.css">
 <link rel="stylesheet" href="/resources/css/style.css">
+<link rel="stylesheet" href="/resources/bower_components/bootstrap/dist/css/bootstrap.css">

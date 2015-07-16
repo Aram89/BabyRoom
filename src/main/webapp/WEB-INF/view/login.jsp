@@ -96,7 +96,7 @@
                     </div>
 
                 <!-- Forgot Password -->
-                <div ng-show="shownForm=='forgot'" class="forgot-form">
+                <div ng-show="shownForm=='forgot'" class="forgot-form ">
                     <form class="login-title" novalidate name="forgotForm"  ng-submit="forgetPassword()">
                         <md-input-container class="md-icon-float">
                             <label>Email</label>

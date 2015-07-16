@@ -21,6 +21,13 @@ app.service('userServices', ['serverConnector', function(serverConnector) {
             url : 'user/forget-password',
             data: data
         });
+    };
+
+    this.childrenCreate = function(data){
+        return serverConnector.send({
+            url: 'user/create-children',
+            data: data
+        })
     }
 
 }]);
