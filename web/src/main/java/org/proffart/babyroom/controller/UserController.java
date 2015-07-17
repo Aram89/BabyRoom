@@ -3,10 +3,7 @@ package org.proffart.babyroom.controller;
 import org.proffart.babyroom.domain.User;
 import org.proffart.babyroom.Exception.*;
 import org.proffart.babyroom.Exception.Error;
-import org.proffart.babyroom.domain.users.Child;
-import org.proffart.babyroom.domain.users.Expert;
-import org.proffart.babyroom.domain.users.Parent;
-import org.proffart.babyroom.domain.users.Seller;
+import org.proffart.babyroom.domain.users.*;
 import org.proffart.babyroom.service.UserService;
 import org.proffart.babyroom.utils.RequestMappings;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +26,6 @@ import java.sql.SQLException;
 @RequestMapping(value = RequestMappings.user)
 @Controller
 public class UserController {
-
-    // Account types.
-    private static final String PARENT = "PARENT";
-    private static final String EXPERT = "EXPERT";
-    private static final String SELLER = "SELLER";
-
     @Autowired
     private UserService userService;
 
@@ -64,7 +55,7 @@ public class UserController {
         // Check user credentials.
         long id = userService.login(parent.getEmail(), parent.getPassword());
         // Save object in parent.
-        userService.saveParent(id);
+        userService.saveParentInSession(id);
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -80,7 +71,7 @@ public class UserController {
         // Secondary email validation.
         checkEmail(parent.getEmail());
         // Set account type.
-        parent.setType(PARENT);
+        parent.setType(AccountType.PARENT);
         userService.create(parent);
         // Create Parent.
        return new ResponseEntity(HttpStatus.OK);
@@ -98,7 +89,7 @@ public class UserController {
         // Secondary email validation.
         checkEmail(expert.getEmail());
         // Set account type.
-        expert.setType(EXPERT);
+        expert.setType(AccountType.EXPERT);
         // Create Parent.
         userService.create(expert);
         return new ResponseEntity(HttpStatus.OK);
@@ -116,7 +107,7 @@ public class UserController {
         // Secondary email validation.
         checkEmail(seller.getEmail());
         // Set account type.
-        seller.setType(PARENT);
+        seller.setType(AccountType.SELLER);
         // Create Parent.
         userService.create(seller);
         return new ResponseEntity(HttpStatus.OK);
@@ -133,6 +124,7 @@ public class UserController {
     @RequestMapping(value = RequestMappings.CREATE_CHILDREN, method = RequestMethod.POST)
     public ResponseEntity createChildren(@RequestBody Child child) throws SQLException, AppException {
         userService.createChild(child);
+        userService.updateParentInSession(child.getParentId());
         return new ResponseEntity(HttpStatus.OK);
     }
 }

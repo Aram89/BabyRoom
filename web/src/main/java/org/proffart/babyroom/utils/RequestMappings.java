@@ -18,4 +18,7 @@ public class RequestMappings {
     public static final String login = "/login";
 
     public static final String loginPage = "/login";
+    public static final String CREATE_CHILDREN_PAGE = "/children-create";
+    public static final String INDEX = "/index";
+
 }

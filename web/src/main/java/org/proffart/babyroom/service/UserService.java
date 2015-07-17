@@ -40,7 +40,10 @@ public interface UserService {
      */
     long login(String userName, String password) throws SQLException,AppException;
 
-    void saveParent(long id);
+    void saveParentInSession(long id);
+
+    void updateParentInSession(long id);
+
 
     void createChild(Child child);
 }

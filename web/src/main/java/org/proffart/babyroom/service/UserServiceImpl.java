@@ -8,6 +8,7 @@ import org.proffart.babyroom.domain.users.Guest;
 import org.proffart.babyroom.Exception.AppException;
 //import org.proffart.babyroom.domain.users.Parent;
 import org.proffart.babyroom.domain.users.Parent;
+import org.proffart.babyroom.utils.RequestMappings;
 import org.proffart.babyroom.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,9 +52,18 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void saveParent(long id) {
+    public void saveParentInSession(long id) {
         Parent parent = userDAO.getParent(id);
-        saveInSession(AccountType.PARENT,parent);
+        saveInSession(AccountType.PARENT, parent);
+    }
+
+    @Override
+    public void updateParentInSession(long id) {
+        // Getting parent from session.
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession();
+        Parent parent = (Parent) session.getAttribute("userObject");
+        saveParentInSession(parent.getId());
     }
 
     @Override
@@ -92,5 +102,25 @@ public class UserServiceImpl implements UserService{
         HttpSession session = attr.getRequest().getSession();
         session.setAttribute("userObject", object);
         session.setAttribute("userType", type);
+    }
+
+    public static String redirectToPage() {
+        // Getting session.
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession();
+
+        //Getting user type from session.
+        String type = (String) session.getAttribute("userType");
+
+        // User is parent.
+        if (type.equalsIgnoreCase(AccountType.PARENT)) {
+            Parent parent = (Parent) session.getAttribute("userObject");
+            if (parent.getChild().isEmpty()) {
+                // Redirect to create children page.
+                return RequestMappings.CREATE_CHILDREN_PAGE;
+            }
+        }
+        // Redirect to home page.
+        return RequestMappings.INDEX;
     }
 }
