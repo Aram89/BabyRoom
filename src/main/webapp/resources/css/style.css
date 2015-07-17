@@ -277,13 +277,14 @@ input.ng-valid {
     display:block
 }
 .login-content .bottom-part .forms-container {
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
     position: relative;
     min-height: 60px;
     margin: auto;
-    top: 50%;
     transform: translateX(0%) translateY(-50%);
     -webkit-transform: translateX(0%) translateY(-50%);
+    -ms-transform:  translateX(-100%) translateY(-50%);/*IE9*/
     background-color: #FAFAFA;
     border-radius: 2px;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
@@ -335,8 +336,35 @@ input.ng-valid {
     background-color: #4DB6AC !important;
     font-weight: bold !important;
 }
-
-
+/*children-create*/
+.form-part{
+    background-color: #EEEEEE;
+}
+.form-inner {
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    min-height: 60px;
+    margin: auto;
+    transform: translateX(0%) translateY(25%);
+    -webkit-transform: translateX(0%) translateY(5%);
+    -ms-transform:  translateX(-115%) translateY(5%);/*IE9*/
+    background-color: #FAFAFA;
+    border-radius: 2px;
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+    padding: 35px 55px 35px;
+    display: block;
+    vertical-align: middle;
+}
+.input-picker{
+    width: 100%;
+    height: 36px;
+    padding: 5px;
+}
+.picker-icon{
+    top: -35px;
+    left: 250px;
+}
 /* animations */
 /*.forgot-form.ng-hide-remove,
 .login-form.ng-hide-remove,
