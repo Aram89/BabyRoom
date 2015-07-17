@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<script src="/resources/bower_components/jquery/src/jquery.js"></script>
 
 <!--scripts-->
+<script src="/resources/bower_components/jquery/src/jquery.js"></script>
 <script src="/resources/bower_components/angular/angular.js"></script>
 <script src="/resources/bower_components/angular-animate/angular-animate.js"></script>
 <script src="/resources/bower_components/angular-aria/angular-aria.js"></script>
@@ -12,6 +12,7 @@
 <script src="/resources/bower_components/angular-material-icons/angular-material-icons.js"></script>
 <script src="/resources/bower_components/angular-messages/angular-messages.js"></script>
 <script src="/resources/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
 <script src="/resources/ng/app.js"></script>
 <script src="/resources/ng/helper.js"></script>
 
@@ -27,4 +28,5 @@
 <!-- controllers -->
 <script src="/resources/ng/ctrl/login.js"></script>
 <script src="/resources/ng/ctrl/post.js"></script>
+<script src="/resources/ng/ctrl/dashboard.js"></script>
 <script src="/resources/ng/ctrl/childController.js"></script>
