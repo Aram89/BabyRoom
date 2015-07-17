@@ -23,7 +23,7 @@ import java.sql.SQLException;
  *
  * @author Aram Kirakosyan.
  */
-@RequestMapping(value = RequestMappings.user)
+@RequestMapping(value = RequestMappings.USER)
 @Controller
 public class UserController {
     @Autowired
@@ -35,7 +35,7 @@ public class UserController {
      * @param email email.
      * @return returns status ok if not exist, else throws Appexception.
      */
-    @RequestMapping(value = RequestMappings.checkEmail, method = RequestMethod.GET)
+    @RequestMapping(value = RequestMappings.CHECK_EMAIL, method = RequestMethod.GET)
     public ResponseEntity checkEmail(@RequestParam(value = "email") String email) throws AppException, SQLException {
             if (userService.emailExists(email))
                 throw new AppException(Error.EMAIL_EXISTS);

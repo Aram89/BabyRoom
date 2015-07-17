@@ -23,12 +23,12 @@ public class PagesController {
         return RequestMappings.CREATE_CHILDREN_PAGE;
     }
 
-    @RequestMapping(value = RequestMappings.loginPage, method = RequestMethod.GET)
+    @RequestMapping(value = RequestMappings.LOGIN_PAGE, method = RequestMethod.GET)
     public String login () {
         if (UserServiceImpl.isLogged()) {
             return UserServiceImpl.redirectToPage();
         }
-        return RequestMappings.loginPage;
+        return RequestMappings.LOGIN_PAGE;
 
     }
 }

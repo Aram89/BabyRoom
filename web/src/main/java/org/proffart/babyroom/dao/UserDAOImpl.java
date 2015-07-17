@@ -62,9 +62,6 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
     @Override
     public Parent getParent(long id) {
         Parent parent =  (Parent)sessionFactory.openSession().load(Parent.class, id);
-//        System.out.println(parent.getEmail());
-//        System.out.println(parent.getPassword());
-
         return parent;
     }
 

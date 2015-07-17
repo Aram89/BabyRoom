@@ -1,24 +1,24 @@
 package org.proffart.babyroom.utils;
 
 /**
- * Created by Aram on 5/17/2015.
+ * @author Aram Kirakosyan.
  */
-public class RequestMappings {
-    public static final String user = "user";
-    public static final String CREATE_PARENT = "/create-parent";
-    public static final String CREATE_EXPERT = "/create-expert";
-    public static final String CREATE_SELLER = "/create-seller";
-    public static final String PARENT_LOGIN = "/login-parent";
-    public static final String EXPERT_LOGIN = "/login-expert";
-    public static final String SELLER_LOGIN = "/login-seller";
-    public static final String CREATE_CHILDREN = "/create-children";
+public interface RequestMappings {
+    String USER = "user";
+    String CREATE_PARENT = "/create-parent";
+    String CREATE_EXPERT = "/create-expert";
+    String CREATE_SELLER = "/create-seller";
+    String PARENT_LOGIN = "/login-parent";
+    String EXPERT_LOGIN = "/login-expert";
+    String SELLER_LOGIN = "/login-seller";
+    String CREATE_CHILDREN = "/create-children";
 
-    public static final String createPost = "/createPost";
-    public static final String checkEmail = "/check-email";
-    public static final String login = "/login";
+    String CREATE_POST = "/create-post";
+    String CHECK_EMAIL = "/check-email";
+    String LOGIN = "/login";
 
-    public static final String loginPage = "/login";
-    public static final String CREATE_CHILDREN_PAGE = "/children-create";
-    public static final String INDEX = "/index";
+    String LOGIN_PAGE = "/login";
+    String CREATE_CHILDREN_PAGE = "/children-create";
+    String INDEX = "/index";
 
 }

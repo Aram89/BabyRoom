@@ -23,7 +23,6 @@ import java.security.NoSuchAlgorithmException;
 @Entity
 @Table(name="user")
 @Inheritance(strategy = InheritanceType.JOINED)
-
 public class User {
     // User id.
     private long id;

@@ -17,7 +17,7 @@ import java.util.Set;
 */
 @Entity
 @PrimaryKeyJoinColumn(name = "parentId")
-public class Parent extends User{
+public class Parent extends User {
 
     /**
      * No-arg constructor.
@@ -28,8 +28,6 @@ public class Parent extends User{
 
     private List <Child> child;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "child", joinColumns = {@JoinColumn(name = "parentId")})
     @OneToMany
     @JoinColumn(name="parentId")
     public List<Child> getChild() {

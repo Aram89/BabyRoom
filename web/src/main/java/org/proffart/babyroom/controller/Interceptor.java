@@ -4,6 +4,9 @@ import org.proffart.babyroom.domain.User;
 import org.proffart.babyroom.domain.users.AccountType;
 import org.proffart.babyroom.domain.users.Parent;
 import org.proffart.babyroom.service.UserService;
+import org.proffart.babyroom.service.UserServiceImpl;
+import org.proffart.babyroom.utils.RequestMappings;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -29,17 +32,23 @@ public class Interceptor implements HandlerInterceptor {
         //Getting user type from session.
         String type = (String) session.getAttribute("userType");
 
+        // User is not logged in, redirecting to login page.
+        if(!UserServiceImpl.isLogged()) {
+            response.sendRedirect(request.getContextPath() + RequestMappings.LOGIN_PAGE);
+        }
+
         // User is parent.
         if (type.equalsIgnoreCase(AccountType.PARENT)) {
             Parent parent = (Parent) session.getAttribute("userObject");
             if (parent.getChild() == null) {
                 // Redirect to create children page.
-                response.sendRedirect(request.getContextPath() + "/children-create");
+                response.sendRedirect(request.getContextPath() + RequestMappings.CREATE_CHILDREN_PAGE);
             } else {
                 // Redirect to home page.
                 response.sendRedirect(request.getContextPath());
             }
         }
+        // TODO other cases
         return true;
     }
 

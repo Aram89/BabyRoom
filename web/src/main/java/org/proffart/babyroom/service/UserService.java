@@ -44,6 +44,5 @@ public interface UserService {
 
     void updateParentInSession(long id);
 
-
     void createChild(Child child);
 }
