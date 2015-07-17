@@ -1,7 +1,9 @@
-app.controller('DashboardController', function($scope, $timeout, $mdSidenav, $mdUtil, $log) {
+app.controller('DashboardController',['$scope','$route','$timeout','$mdSidenav','$mdUtil','$log',function($scope,$route, $timeout, $mdSidenav, $mdUtil, $log) {
     'use strict';
+    //--routing--//
+    $scope.$route = $route;
 
-
+    //--end  routing--//
     $scope.toggleLeft = buildToggler('left');
     $scope.toggleRight = buildToggler('right');
     /**
@@ -20,7 +22,7 @@ app.controller('DashboardController', function($scope, $timeout, $mdSidenav, $md
     }
 
 
-});
+}]);
 
 app.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {

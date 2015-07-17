@@ -14,11 +14,6 @@
 
 <body ng-controller="DashboardController">
 
-
-
-
-
-
 <div layout="column" style="height:500px;">
   <section layout="row" flex>
 
@@ -27,89 +22,26 @@
         <h1 class="md-toolbar-tools">Menu</h1>
       </md-toolbar>
       <md-content layout-padding ng-controller="LeftCtrl">
+        <div>
+          <a href="#soial">Social</a>
+        </div>
+        <div>
+          <a href="#market">Market</a>
+        </div>
+        <div ng-view></div>
         <md-button ng-click="close()" class="md-primary">
           Close Sidenav Left
         </md-button>
       </md-content>
     </md-sidenav>
 
-    <md-content flex layout-padding>
+    <md-content flex layout-padding class="{{$route.current.scope.theme}}">
       <div layout="column" layout-fill layout-align="top center">
+        <p>Current selected<div ng-view></div><div>Current theme{{$route.current.scope.theme}}</div>
         <p>
           The left sidenav will 'lock open' on a medium (>=960px wide) device.
         </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
+
         <p>
           The right sidenav will focus on a specific child element.
         </p>

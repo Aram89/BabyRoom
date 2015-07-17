@@ -5,12 +5,12 @@ var app = angular.module('app',['ngResource','ngMaterial','ui.bootstrap','ngMdIc
 app.config(function($routeProvider){
     $routeProvider
         .when('/social',{
-            templateUrl:'resources/views/social.html',
-            controller:'socialController'
+            templateUrl:'../resources/views/social.html',
+            controller:'SocialController'
         })
         .when('/market',{
-            templateUrl:'resources/views/market.html',
-            controller:'marketController'
+            templateUrl:'../resources/views/market.html',
+            controller:'MarketController'
         })
         .otherwise({
             redirectTo:'/social'

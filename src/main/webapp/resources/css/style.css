@@ -365,6 +365,13 @@ input.ng-valid {
     top: -35px;
     left: 250px;
 }
+.social-theme{
+    background-color: purple;
+}
+
+.market-theme{
+    background-color: #003eff;
+}
 /* animations */
 /*.forgot-form.ng-hide-remove,
 .login-form.ng-hide-remove,

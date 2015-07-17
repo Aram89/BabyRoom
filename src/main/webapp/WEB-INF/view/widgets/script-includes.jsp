@@ -29,4 +29,6 @@
 <script src="/resources/ng/ctrl/login.js"></script>
 <script src="/resources/ng/ctrl/post.js"></script>
 <script src="/resources/ng/ctrl/dashboard.js"></script>
+<script src="/resources/ng/ctrl/social.js"></script>
+<script src="/resources/ng/ctrl/market.js"></script>
 <script src="/resources/ng/ctrl/childController.js"></script>
