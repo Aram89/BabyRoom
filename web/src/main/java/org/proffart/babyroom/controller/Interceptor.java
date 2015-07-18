@@ -40,7 +40,7 @@ public class Interceptor implements HandlerInterceptor {
         // User is parent.
         if (type.equalsIgnoreCase(AccountType.PARENT)) {
             Parent parent = (Parent) session.getAttribute("userObject");
-            if (parent.getChild() == null) {
+            if (parent.getChild().isEmpty()) {
                 // Redirect to create children page.
                 response.sendRedirect(request.getContextPath() + RequestMappings.CREATE_CHILDREN_PAGE);
             } else {
