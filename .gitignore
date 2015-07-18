@@ -1,0 +1,7 @@
+.idea/
+target/
+web/src/main/webapp/resources/bower_components/
+web/target/
+BabyRoom.iml
+web/web.iml
+analytics/analytics.iml

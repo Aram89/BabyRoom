@@ -4,7 +4,7 @@
   "dependencies": {
     "jquery":"2.1.4",
     "fontawesome" : "*",
-    "angular": "1.4.2",
+    "angular": "1.4.3",
     "angular-bootstrap":"*",
     "bootstrap":"*",
     "angular-material": "*",
