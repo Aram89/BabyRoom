@@ -1,3 +1,4 @@
-.idea/
+#.idea/
 target/
+#web/src/main/webapp/resources/bower_components/
 BabyRoom.iml
