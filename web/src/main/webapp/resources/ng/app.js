@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('app',['ngResource','ngMaterial','ui.bootstrap','ngMdIcons','ngMessages','ngAnimate','ngRoute']);
+var app = angular.module('app',['ngResource','ngMaterial','ui.bootstrap','ngMdIcons','ngMessages','ngAnimate','ngRoute','angularFileUpload']);
 
 app.config(function($routeProvider){
     $routeProvider

@@ -366,11 +366,11 @@ input.ng-valid {
     left: 250px;
 }
 .social-theme{
-    background-color: purple;
+    background-color: #f9f2f4;
 }
 
 .market-theme{
-    background-color: #003eff;
+    background-color: #fffcbe;
 }
 /* animations */
 /*.forgot-form.ng-hide-remove,

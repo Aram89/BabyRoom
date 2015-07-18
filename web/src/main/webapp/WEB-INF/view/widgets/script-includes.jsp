@@ -2,8 +2,10 @@
 
 
 <!--scripts-->
-<script src="/resources/bower_components/jquery/src/jquery.js"></script>
+<script src="/resources/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/resources/bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
 <script src="/resources/bower_components/angular/angular.js"></script>
+<script src="/resources/bower_components/angular-file-upload/angular-file-upload.js"></script>
 <script src="/resources/bower_components/angular-animate/angular-animate.js"></script>
 <script src="/resources/bower_components/angular-aria/angular-aria.js"></script>
 <script src="/resources/bower_components/angular-route/angular-route.js"></script>

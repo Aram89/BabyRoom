@@ -1,1 +1,13 @@
-<strong>Social</strong>
+<div class="social-section">
+    <md-menu>
+        <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$mdOpenMenu()">
+            <md-icon md-menu-origin md-svg-icon="call:phone"></md-icon>
+        </md-button>
+        <md-menu-content>
+            <md-menu-item>
+                    <input type="file" nv-file-select="" uploader="uploader" />
+                    <md-button ng-click="uploader.uploadAll()"></md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</div>

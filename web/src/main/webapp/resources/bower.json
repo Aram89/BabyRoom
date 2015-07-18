@@ -12,6 +12,7 @@
     "angular-route": "*",
     "angular-messages":"*",
     "angular-resource": "*",
-    "animate.css": "*"
+    "animate.css": "*",
+    "angular-file-upload": "*"
   }
 }

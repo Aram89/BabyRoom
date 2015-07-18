@@ -38,51 +38,12 @@
     <md-content flex layout-padding class="{{$route.current.scope.theme}}">
       <div layout="column" layout-fill layout-align="top center">
         <p>Current selected<div ng-view></div><div>Current theme{{$route.current.scope.theme}}</div>
-        <p>
-          The left sidenav will 'lock open' on a medium (>=960px wide) device.
-        </p>
-
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
-          The right sidenav will focus on a specific child element.
-        </p>
-        <p>
+         <p>
           The right sidenav will focus on a specific child element.
         </p>
         <div>
           <md-button ng-click="toggleLeft()" class="md-primary">
             Toggle left
-          </md-button>
-        </div>
-        <div>
-          <md-button ng-click="toggleRight()" class="md-primary">
-            Toggle right
           </md-button>
         </div>
       </div>
