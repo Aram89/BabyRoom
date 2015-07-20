@@ -30,7 +30,7 @@ public class FileController {
 
     @RequestMapping(value= RequestMappings.UPLOAD_FILE, method=RequestMethod.POST)
     public void UploadFile(MultipartHttpServletRequest request,HttpServletResponse response) throws IOException {
-            Iterator<String> itr=request.getFileNames();
+        try{Iterator<String> itr=request.getFileNames();
             MultipartFile file=request.getFile(itr.next());
             String fileName=file.getOriginalFilename();
             File dir = new File("/files/");
@@ -43,5 +43,10 @@ public class FileController {
             }else {
                 System.out.println("Error Found");
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+        }
+
 }

@@ -13,6 +13,7 @@
     "angular-messages":"*",
     "angular-resource": "*",
     "animate.css": "*",
+    "angular-cookies":"*",
     "angular-file-upload": "*"
   }
 }
