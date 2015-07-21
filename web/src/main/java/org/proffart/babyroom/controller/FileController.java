@@ -1,6 +1,5 @@
 package org.proffart.babyroom.controller;
 
-import com.sun.xml.internal.ws.api.message.Attachment;
 import org.proffart.babyroom.utils.RequestMappings;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +16,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
+import org.apache.commons.io.output.DeferredFileOutputStream;
 
 /**
  * @author Aram Kirakosyan.
@@ -29,10 +29,12 @@ public class FileController {
 
 
     @RequestMapping(value= RequestMappings.UPLOAD_FILE, method=RequestMethod.POST)
-    public void UploadFile(MultipartHttpServletRequest request,HttpServletResponse response) throws IOException {
-        try{Iterator<String> itr=request.getFileNames();
+    public void UploadFile( MultipartHttpServletRequest request,HttpServletResponse response) throws IOException {
+
+        try{
+            Iterator<String> itr=request.getFileNames();
             MultipartFile file=request.getFile(itr.next());
-            String fileName=file.getOriginalFilename();
+            String fileName = file.getOriginalFilename();
             File dir = new File("/files/");
             if (dir.isDirectory()){
                 File serverFile = new File(dir,fileName);
