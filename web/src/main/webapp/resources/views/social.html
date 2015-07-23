@@ -5,13 +5,53 @@
         </md-button>
         <md-menu-content>
             <md-menu-item>
-                <form ng-submit="uploadFile()" class="form-horizontal" enctype="multipart/form-data">
+                <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
+
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th ng-show="uploader.isHTML5">Progress</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in uploader.queue">
+                        <td ng-show="uploader.isHTML5">
+                            <div class="progress" style="margin-bottom: 0;">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                            <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                            <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                        </td>
+                        <td nowrap>
+                            <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                <span class="glyphicon glyphicon-upload"></span> Upload
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                <span class="glyphicon glyphicon-trash"></span> Remove
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                    <span class="glyphicon glyphicon-upload"></span> Upload all
+                </button>
+                <!--form ng-submit="uploadFile()" class="form-horizontal" enctype="multipart/form-data">
                 <input type="file" name="file" ng-model="document.fileInput" id="file" ng-change="setTitle(this)" />
                 <input type="text" class="col-sm-4" ng-model="document.title" id="title" />
                 <button class="btn btn-primary" type="submit">
                     Submit
                 </button>
-            </form>
+            </form-->
             </md-menu-item>
         </md-menu-content>
     </md-menu>
