@@ -2,6 +2,7 @@ package org.proffart.babyroom.domain;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.proffart.babyroom.domain.users.AccountType;
+import org.proffart.babyroom.domain.users.Child;
 import org.proffart.babyroom.utils.StringUtils;
 import org.proffart.babyroom.utils.Utils;
 import org.springframework.context.annotation.Scope;
@@ -13,6 +14,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Null;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 /**
  * @author Aram Kirakosyan.
@@ -40,6 +42,17 @@ public class User {
 
     // Login.
     private String login;
+
+    private List<Action> actions;
+
+    @OneToMany(mappedBy = "user")
+    public List<Action> getActions() {
+        return actions;
+    }
+
+    public void setActions(List<Action> actions) {
+        this.actions = actions;
+    }
 
     /**
      * No-arg constructor.

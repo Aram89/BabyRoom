@@ -7,10 +7,13 @@ package org.proffart.babyroom.Exception;
  */
 public class Error {
 
-    public static String USER_NAME_EXISTS = "userNameExists";
-    public static String EMAIL_EXISTS = "emailExists";
-    public static String WRONG_USER_NAME = "wrongUserName";
-    public static String WRONG_PASSWORD = "wrongPassword";
+    public static final String USER_NAME_EXISTS = "userNameExists";
+    public static final String EMAIL_EXISTS = "emailExists";
+    public static final String WRONG_USER_NAME = "wrongUserName";
+    public static final String WRONG_PASSWORD = "wrongPassword";
+
+    // Files
+    public static final String EMPTY_FILE = "fileIsEmpty";
 
 
     private String errorString;

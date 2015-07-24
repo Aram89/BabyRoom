@@ -1,6 +1,11 @@
 package org.proffart.babyroom.controller;
 
+import org.proffart.babyroom.Exception.*;
+import org.proffart.babyroom.Exception.Error;
+import org.proffart.babyroom.domain.User;
+import org.proffart.babyroom.service.FileService;
 import org.proffart.babyroom.utils.RequestMappings;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,10 +22,10 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.Iterator;
-import java.util.Random;
 
-import org.apache.commons.io.output.DeferredFileOutputStream;
 
 /**
  * @author Aram Kirakosyan.
@@ -30,27 +35,37 @@ import org.apache.commons.io.output.DeferredFileOutputStream;
 @Controller
 public class FileController {
 
+    @Autowired
+    private FileService fileService;
 
+    @RequestMapping(value = RequestMappings.UPLOAD_FILE, method = RequestMethod.POST)
+    public ResponseEntity UploadFile(@RequestParam("file") MultipartFile multipartFile) throws IOException, AppException, SQLException {
+        if (!multipartFile.isEmpty()) {
+            byte[] bytes = multipartFile.getBytes();
+            BufferedOutputStream stream = new BufferedOutputStream
+                    (new FileOutputStream(new File(multipartFile.getName())));
+            stream.write(bytes);
+            stream.close();
+            org.proffart.babyroom.domain.File file = new org.proffart.babyroom.domain.File();
+            file.setMimeType(multipartFile.getContentType());
+            file.setName(multipartFile.getName());
+            file.setCreateDate(new Date());
+            file.setSystemName("test");
+            file.setExternalURl("test");
+            file.setPath("test");
+            //file.setType("IMAGE");
+            User user = new User();
+            user.setId(2);
 
-    @RequestMapping(value= RequestMappings.UPLOAD_FILE, method=RequestMethod.POST)
-    public ResponseEntity UploadFile( MultipartHttpServletRequest request,HttpServletResponse response) throws IOException {
+            file.setUser(user);
+            fileService.saveFile(file);
 
-            Iterator<String> itr=request.getFileNames();
-            MultipartFile file=request.getFile(itr.next());
-            String fileName = file.getOriginalFilename();
-            File dir = new File("C:\\magic");
-            if (dir.isDirectory()){
-                File serverFile = new File(dir,fileName);
-                BufferedOutputStream stream = new BufferedOutputStream(
-                        new FileOutputStream(serverFile));
-                stream.write(file.getBytes());
-                stream.close();
-            }else {
-                dir.mkdir();
-                System.out.println("Error Found");
-            }
-        return new ResponseEntity(fileName, HttpStatus.OK);
+        } else {
+            throw new AppException(Error.EMPTY_FILE);
         }
+        return new ResponseEntity("1", HttpStatus.OK);
+    }
+
 
 
 }
