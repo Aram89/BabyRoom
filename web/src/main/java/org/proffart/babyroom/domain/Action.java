@@ -14,6 +14,13 @@ import java.util.Date;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Action {
 
+    // Action types.
+    public static final String FILE = "FILE";
+    public static final String POST = "POST";
+    public static final String COMMENT = "COMMENT";
+    public static final String LIKE = "LIKE";
+
+
     private long actionId;
     private Date createDate;
     private String type;

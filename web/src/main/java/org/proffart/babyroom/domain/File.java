@@ -16,10 +16,9 @@ import java.util.List;
 public class File extends Action{
 
     private String name;
-    private String systemName;
     private String path;
     private String mimeType;
-    private String type;
+    private String fileType;
     private String externalURl;
 
     public void setExternalURl(String externalURl) {
@@ -33,15 +32,6 @@ public class File extends Action{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    @Column(name = "systemName")
-    public String getSystemName() {
-        return systemName;
-    }
-
-    public void setSystemName(String systemName) {
-        this.systemName = systemName;
     }
 
     @Column(name = "path")
@@ -63,12 +53,12 @@ public class File extends Action{
     }
 
     @Column(name = "type")
-    public String getType() {
-        return type;
+    public String getFileType() {
+        return fileType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
     @Column(name = "externalURl")

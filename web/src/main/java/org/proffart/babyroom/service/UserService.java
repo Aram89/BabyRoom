@@ -3,6 +3,7 @@ package org.proffart.babyroom.service;
 import org.proffart.babyroom.domain.User;
 import org.proffart.babyroom.Exception.AppException;
 import org.proffart.babyroom.domain.users.Child;
+import org.proffart.babyroom.domain.users.Parent;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;

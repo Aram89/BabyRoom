@@ -123,4 +123,12 @@ public class UserServiceImpl implements UserService{
         // Redirect to home page.
         return RequestMappings.INDEX;
     }
+
+    public static User getUser(){
+        // Getting session.
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession();
+        User user = (User) session.getAttribute("userObject");
+        return user;
+    }
 }

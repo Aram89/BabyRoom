@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by Aram on 5/24/2015.
+ * @author Aram Kirakosyan.
  */
 public class Utils {
 

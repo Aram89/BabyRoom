@@ -3,7 +3,7 @@ package org.proffart.babyroom.Exception;
 /**
  * Exception class for throwing exceptions from application.
  *
- * Created by Aram on 6/13/2015.
+ * @author Aram Kirakosyan.
  */
 public class AppException extends Exception{
 
