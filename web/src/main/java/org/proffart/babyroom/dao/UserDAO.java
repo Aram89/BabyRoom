@@ -12,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 /**
- * Created by Aram on 5/17/2015.
+ * @author Aram Kirakosyan.
  */
 public interface UserDAO {
     void insert(User user) throws SQLException;

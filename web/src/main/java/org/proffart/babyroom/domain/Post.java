@@ -23,18 +23,31 @@ public class Post extends Action {
     // Status (ACTIVE, INACTIVE, etc)
     private String status;
 
-    /// Files id list connected with post.
-    private List<String> fileIds;
+    // Post type (EVENT, TEXT, FILE)
+    private String postType;
+
+    @Column(name = "type")
+    public String getPostType() {
+        return postType;
+    }
+
+    public void setPostType(String postType) {
+        this.postType = postType;
+    }
+
+    // Files id list connected with post.
+    private List<Long> fileIds;
 
     @Transient
-    public List<String> getFileIds() {
+    public List<Long> getFileIds() {
         return fileIds;
     }
 
-    public void setFileIds(List<String> fileIds) {
+    public void setFileIds(List<Long> fileIds) {
         this.fileIds = fileIds;
     }
 
+    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -43,6 +56,7 @@ public class Post extends Action {
         this.content = content;
     }
 
+    @Column(name = "event")
     public String getEvent() {
         return event;
     }
@@ -51,6 +65,7 @@ public class Post extends Action {
         this.event = event;
     }
 
+    @Column(name = "status")
     public String getStatus() {
         return status;
     }

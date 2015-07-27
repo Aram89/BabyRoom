@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author Aram Kirakosyan.
@@ -28,5 +29,14 @@ public class FileDAOImpl extends BaseDAO implements FileDAO{
             id = 0;
         }
         return id;
+    }
+
+    @Override
+    public void attachFilesToPost(List<Long> fileIds, long postId) throws SQLException {
+        String sql = "UPDATE file set postId = :postId where fileId in (:fileIds) ";
+        Query query = getSession().createSQLQuery(sql);
+        query.setLong("postId", postId);
+        query.setParameterList("fileIds", fileIds);
+        query.executeUpdate();
     }
 }

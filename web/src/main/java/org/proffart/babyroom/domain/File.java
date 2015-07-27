@@ -20,6 +20,16 @@ public class File extends Action{
     private String mimeType;
     private String fileType;
     private String externalURl;
+    private String postId;;
+
+    @Column(name = "postId")
+    public String getPostId() {
+        return postId;
+    }
+
+    public void setPostId(String postId) {
+        this.postId = postId;
+    }
 
     public void setExternalURl(String externalURl) {
         this.externalURl = externalURl;
