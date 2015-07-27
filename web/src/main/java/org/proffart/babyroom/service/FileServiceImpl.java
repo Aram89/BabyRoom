@@ -81,13 +81,13 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public String uploadFile(MultipartFile multipartFile) throws SQLException, IOException, AppException {
+    public String uploadFile(MultipartFile multipartFile, Long userId) throws SQLException, IOException, AppException {
         String mimeType = multipartFile.getContentType();
         String type = getType(mimeType);
         String path = createDirs(type);
         if (!multipartFile.isEmpty()) {
             byte[] bytes = multipartFile.getBytes();
-            String fullPath = path + DELIMITER + multipartFile.getOriginalFilename();
+            String fullPath = path + DELIMITER + (new Date().getTime()) + userId + multipartFile.getOriginalFilename();
             BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new java.io.File(fullPath)));
             stream.write(bytes);
             stream.close();

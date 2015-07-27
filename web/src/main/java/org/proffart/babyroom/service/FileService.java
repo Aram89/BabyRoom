@@ -28,7 +28,7 @@ public interface FileService {
      */
     String createFilePath(String type) throws SQLException;
 
-    String uploadFile(MultipartFile file) throws SQLException, IOException, AppException;
+    String uploadFile(MultipartFile file, Long userId) throws SQLException, IOException, AppException;
 
     String createDirs(String type) throws SQLException;
 }

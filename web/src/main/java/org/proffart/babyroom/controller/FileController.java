@@ -36,8 +36,10 @@ public class FileController {
     @RequestMapping(value = RequestMappings.UPLOAD_FILE, method = RequestMethod.POST)
     public ResponseEntity UploadFile(@RequestParam("file") MultipartFile multipartFile)
             throws IOException, AppException, SQLException {
+        // Getting user form session.
+        User user = UserServiceImpl.getUser();
         // Upload file and get file path.
-        String path  = fileService.uploadFile(multipartFile);
+        String path  = fileService.uploadFile(multipartFile, user.getId());
 
         // create domain object and set fields for file.
         File file = new File();
@@ -46,8 +48,7 @@ public class FileController {
         file.setCreateDate(new Date());
         file.setMimeType(multipartFile.getContentType());
         file.setType(Action.FILE);
-        // Getting user form session.
-        User user = UserServiceImpl.getUser();
+
         file.setUser(user);
 
         // Insert into DB and get inserted entry id.
