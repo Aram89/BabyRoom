@@ -95,7 +95,7 @@ CREATE TABLE `action` (
   `actionId` INT(11) NOT NULL AUTO_INCREMENT,
   `createDate` DATETIME NOT NULL,
   `userId` INT(11) NOT NULL,
-  `type` ENUM('POST', 'COMMENT', 'LIKE'),
+  `type` ENUM('POST', 'COMMENT', 'LIKE', 'FILE'),
   PRIMARY KEY (`actionId`),
   UNIQUE INDEX `actionId_UNIQUE` (`actionId` ASC),
   CONSTRAINT `fk_action_user`
@@ -107,8 +107,9 @@ CREATE TABLE `action` (
 CREATE TABLE `post` (
   `postId` INT(11) NOT NULL,
   `content` TEXT NOT NULL,
-  `type` ENUM('TEXT', 'IMAGE', 'VIDEO', 'SOUND', 'ALBUM'),
+  `type` ENUM('TEXT', 'IMAGE', 'VIDEO', 'SOUND', 'ALBUM', 'EVENT'),
   `status` ENUM('ACTIVE', 'BLOCKED', 'DELETED') NOT NULL,
+  `event` ENUM('BIRTHDAY', 'FIRST_STEPS'),
   PRIMARY KEY (`postId`),
   UNIQUE INDEX `postId_UNIQUE` (`postId` ASC),
   CONSTRAINT `fk_action_post`
@@ -155,14 +156,18 @@ CREATE TABLE `file` (
   `type` ENUM('IMAGE', 'VIDEO', 'SOUND', 'DOC') NOT NULL,
   `mimeType` CHAR(30) NOT NULL,
   `name` VARCHAR(150) NOT NULL,
-  `systemName` CHAR(15) NOT NULL,
   `path` VARCHAR(255) NOT NULL,
-  `externalURl` VARCHAR(255) NOT NULL,
+  `externalURl` VARCHAR(255),
+  `postId` INT(11),
   PRIMARY KEY (`fileId`),
   UNIQUE INDEX `fileId_UNIQUE` (`fileId` ASC),
   CONSTRAINT `fk_action_file`
   FOREIGN KEY (`fileId`)
   REFERENCES `action` (`actionId`)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_post_file`
+  FOREIGN KEY (`postId`)
+  REFERENCES `post` (`postId`)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 

@@ -28,7 +28,7 @@ public class PostController {
 
     @RequestMapping(value = RequestMappings.CREATE_POST, method = RequestMethod.POST)
     public ResponseEntity createPost(@RequestBody Post post) throws SQLException {
-        // Get user from session.
+        // Getting user from session.
         User user = UserServiceImpl.getUser();
         post.setUser(user);
         postService.createPost(post);
