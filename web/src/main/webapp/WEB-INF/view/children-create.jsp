@@ -14,9 +14,9 @@
 </head>
 
 <body ng-controller="childController" class="form-part">
-
+<!--<img src="/resources/img/baby-room-back.jpg"/>-->
   <div layout layout-align="center center">
-    <div class="form-inner">
+    <div class="form-inner form-create">
     <form name="childDataForm" novalidate ng-submit="saveChildData()">
       <md-input-container>
         <label>First name</label>
@@ -40,12 +40,13 @@
         <md-radio-button value="male">Male</md-radio-button>
         <md-radio-button value="female">Female</md-radio-button>
       </md-radio-group>
-      <div>
-        <input is-open="calendar.opened" max-date="calendar.maxDate" min-date="calendar.minDate" datepicker-popup ng-model="childData.birthday" class="input-picker"/>
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-default picker-icon" ng-click="calendar.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+
+      <md-input-container>
+        <input required maxlength="50" minlength="2" is-open="calendar.opened" max-date="calendar.maxDate" min-date="calendar.minDate" datepicker-popup ng-model="childData.birthday"/>
+          <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="calendar.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
         </span>
-      </div>
+      </md-input-container>
       <md-button class="md-raised md-primary btn-blue"
                  ng-disabled="childDataBlock.showWarnings && childDataForm.$invalid">
         Save
