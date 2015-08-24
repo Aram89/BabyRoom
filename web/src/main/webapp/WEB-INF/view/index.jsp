@@ -21,7 +21,7 @@
   <link href="/resources/css/style.css" rel="stylesheet">
 
 </head>
-<body ng-app="app" ng-controller="pageController">
+<body ng-app="app" ng-controller="pageController" class="main-body">
 <!--header id="header">
   <ul class="header-inner">
 
@@ -68,7 +68,7 @@
               </li>
             </ul>
             <div class="tab-content p-20">
-              <div ng-view></div>
+              <div ng-view class="menu-icon"></div>
             </div>
           </div>
         </div>

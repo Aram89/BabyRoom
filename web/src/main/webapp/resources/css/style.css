@@ -368,6 +368,15 @@ input.ng-valid {
 .form-create{
     margin: 0 5px;
 }
+/*main part*/
+.main-body{
+    background-color: #4DB6AC !important;
+}
+.menu-icon{
+    position: fixed;
+    margin-left: 60px !important;
+    z-index: 200;
+}
 /* animations */
 /*.forgot-form.ng-hide-remove,
 .login-form.ng-hide-remove,
