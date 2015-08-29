@@ -8,10 +8,6 @@ app.controller('newPostController', ['$scope', function($scope) {
 
     $scope.opened = false;
     $scope.post = {};
-    $scope.init = function() {
-        postContent = document.getElementById('post_content');
-        $scope.post = angular.merge({}, defaultPostObject);
-    };
 
 
     $scope.open = function() {

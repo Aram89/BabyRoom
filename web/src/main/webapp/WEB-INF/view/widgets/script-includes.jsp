@@ -27,7 +27,7 @@
 
 <!-- services -->
 <script src="/resources/ng/services/userServices.js"></script>
-
+<script src="/resources/ng/services/fileUploadService.js"></script>
 <!-- controllers -->
 <script src="/resources/ng/ctrl/login.js"></script>
 <script src="/resources/ng/ctrl/post.js"></script>

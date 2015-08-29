@@ -28,6 +28,13 @@ app.service('userServices', ['serverConnector', function(serverConnector) {
             url: 'user/create-children',
             data: data
         })
+    };
+
+    this.createPost = function(data){
+        return serverConnector.send({
+            url:'http://localhost:8080/create-post',
+            data:data
+        })
     }
 
 }]);
