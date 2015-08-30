@@ -41,9 +41,19 @@
             </tbody>
 
         </table>
-        <md-input-container>
-            <input ng-model="post.status" />
-        </md-input-container>
+        <div>
+            <md-input-container>
+                <input ng-model="post.status" />
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container>
+                <label>Select Event</label>
+                <md-select ng-model="post.event">
+                    <md-option ng-repeat="event in events" value="{{event}}">{{event}}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
         <button ng-click="doPost()">POST</button>
         <!--button-- type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
             <span class="glyphicon glyphicon-upload"></span> Upload all
