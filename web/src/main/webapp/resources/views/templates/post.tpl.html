@@ -49,8 +49,8 @@
         <div>
             <md-input-container>
                 <label>Select Event</label>
-                <md-select ng-model="post.event">
-                    <md-option ng-repeat="event in events" value="{{event}}">{{event}}</md-option>
+                <md-select  ng-model="post.event">
+                    <md-option ng-click="selectEvent(event)" ng-repeat="event in events" value="{{event}}">{{event}}</md-option>
                 </md-select>
             </md-input-container>
         </div>
