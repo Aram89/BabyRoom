@@ -25,4 +25,8 @@ public interface RequestMappings {
     String CREATE_CHILDREN_PAGE = "/children-create";
     String INDEX = "/index";
 
+    // Relations
+    String ADD_FRIEND = "/add-friend";
+
+
 }

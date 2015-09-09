@@ -11,8 +11,7 @@ DROP TABLE IF EXISTS `parent`;
 DROP TABLE IF EXISTS `city`;
 DROP TABLE IF EXISTS `country`;
 DROP TABLE IF EXISTS `user`;
-
-
+DROP TABLE IF EXISTS `friendship`;
 
 CREATE TABLE `user` (
   `userId` INT(11) NOT NULL AUTO_INCREMENT,
@@ -106,9 +105,9 @@ CREATE TABLE `action` (
 
 CREATE TABLE `post` (
   `postId` INT(11) NOT NULL,
-  `content` TEXT NOT NULL,
+  `content` TEXT,
   `type` ENUM('TEXT', 'IMAGE', 'VIDEO', 'SOUND', 'ALBUM', 'EVENT'),
-  `status` ENUM('ACTIVE', 'BLOCKED', 'DELETED') NOT NULL,
+  `status` ENUM('ACTIVE', 'BLOCKED', 'DELETED'),
   `event` ENUM('BIRTHDAY', 'FIRST_STEPS'),
   PRIMARY KEY (`postId`),
   UNIQUE INDEX `postId_UNIQUE` (`postId` ASC),
@@ -189,3 +188,13 @@ CREATE TABLE `message` (
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE `friendship`(
+  `userId` int(11) NOT NULL,
+  `friendId` int(11) NOT NULL,
+  `status` char(255) NOT NULL,
+  `timeStamp` datetime NOT NULL,
+  PRIMARY KEY (`userId`,`friendId`),
+  CONSTRAINT `friendId` FOREIGN KEY (`friendId`) REFERENCES `user` (`userId`)
+  ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+  ON DELETE NO ACTION ON UPDATE NO ACTION ) ENGINE=InnoDB DEFAULT CHARSET=utf8
