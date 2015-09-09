@@ -1,19 +1,6 @@
 package org.proffart.babyroom.domain;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import org.proffart.babyroom.domain.users.AccountType;
-import org.proffart.babyroom.domain.users.Child;
-import org.proffart.babyroom.utils.StringUtils;
-import org.proffart.babyroom.utils.Utils;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.Generated;
 import javax.persistence.*;
-import javax.validation.constraints.Null;
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -44,6 +31,30 @@ public class User {
     private String login;
 
     private List<Action> actions;
+
+    private List<Friendship> requestedFriends;
+
+    private List<Friendship> receivedFriends;
+
+
+    @OneToMany(mappedBy = "friendRequester")
+    public List<Friendship> getRequestedFriends() {
+        return requestedFriends;
+    }
+
+    public void setRequestedFriends(List<Friendship> requestedFriends) {
+        this.requestedFriends = requestedFriends;
+    }
+
+    @OneToMany(mappedBy = "friendReceiver")
+    public List<Friendship> getReceivedFriends() {
+        return receivedFriends;
+    }
+
+    public void setReceivedFriends(List<Friendship> receivedFriends) {
+        this.receivedFriends = receivedFriends;
+    }
+
 
     @OneToMany(mappedBy = "user")
     public List<Action> getActions() {

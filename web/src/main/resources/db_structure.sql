@@ -106,9 +106,9 @@ CREATE TABLE `action` (
 
 CREATE TABLE `post` (
   `postId` INT(11) NOT NULL,
-  `content` TEXT NOT NULL,
+  `content` TEXT,
   `type` ENUM('TEXT', 'IMAGE', 'VIDEO', 'SOUND', 'ALBUM', 'EVENT'),
-  `status` ENUM('ACTIVE', 'BLOCKED', 'DELETED') NOT NULL,
+  `status` ENUM('ACTIVE', 'BLOCKED', 'DELETED'),
   `event` ENUM('BIRTHDAY', 'FIRST_STEPS'),
   PRIMARY KEY (`postId`),
   UNIQUE INDEX `postId_UNIQUE` (`postId` ASC),
@@ -189,3 +189,12 @@ CREATE TABLE `message` (
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE `friendship` (
+  `userId` INT(11) NOT NULL,
+  `friendId` INT(11) NOT NULL,
+  PRIMARY KEY (`userID`, `friendId`),
+  CONSTRAINT `fk_like_action`
+  FOREIGN KEY (`userIdId`)
+  REFERENCES `user` (`userIdId`)
+    ON DELETE CASCADE ON UPDATE CASCADE
+);
