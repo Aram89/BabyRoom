@@ -47,7 +47,7 @@ public class FileController {
         file.setName(multipartFile.getOriginalFilename());
         file.setCreateDate(new Date());
         file.setMimeType(multipartFile.getContentType());
-        file.setType(Action.FILE);
+        //file.setType(Action.FILE);
 
         file.setUser(user);
 

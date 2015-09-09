@@ -32,26 +32,26 @@ public class User {
 
     private List<Action> actions;
 
-    private List<Friendship> requestedFriends;
+    private List<Relationship> requestedFriends;
 
-    private List<Friendship> receivedFriends;
+    private List<Relationship> receivedFriends;
 
 
-    @OneToMany(mappedBy = "friendRequester")
-    public List<Friendship> getRequestedFriends() {
+    @OneToMany(mappedBy = "relationRequester")
+    public List<Relationship> getRequestedFriends() {
         return requestedFriends;
     }
 
-    public void setRequestedFriends(List<Friendship> requestedFriends) {
+    public void setRequestedFriends(List<Relationship> requestedFriends) {
         this.requestedFriends = requestedFriends;
     }
 
-    @OneToMany(mappedBy = "friendReceiver")
-    public List<Friendship> getReceivedFriends() {
+    @OneToMany(mappedBy = "relationReceiver")
+    public List<Relationship> getReceivedFriends() {
         return receivedFriends;
     }
 
-    public void setReceivedFriends(List<Friendship> receivedFriends) {
+    public void setReceivedFriends(List<Relationship> receivedFriends) {
         this.receivedFriends = receivedFriends;
     }
 

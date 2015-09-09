@@ -1,6 +1,6 @@
 package org.proffart.babyroom.dao;
 
-import org.proffart.babyroom.domain.Friendship;
+import org.proffart.babyroom.domain.Relationship;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public class RelationDAOImpl extends BaseDAO implements RelationDAO {
 
     @Override
-    public void addFriend(Friendship friendship) {
+    public void addFriend(Relationship friendship) {
         persist(friendship);
     }
 }

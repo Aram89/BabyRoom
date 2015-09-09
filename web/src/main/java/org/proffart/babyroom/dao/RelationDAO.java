@@ -1,11 +1,11 @@
 package org.proffart.babyroom.dao;
 
-import org.proffart.babyroom.domain.Friendship;
+import org.proffart.babyroom.domain.Relationship;
 
 /**
  * @author Aram Kirakosyan.
  */
 public interface RelationDAO {
 
-    void addFriend(Friendship friendship);
+    void addFriend(Relationship friendship);
 }

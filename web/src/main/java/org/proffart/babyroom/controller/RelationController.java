@@ -1,6 +1,6 @@
 package org.proffart.babyroom.controller;
 
-import org.proffart.babyroom.domain.Friendship;
+import org.proffart.babyroom.domain.Relationship;
 import org.proffart.babyroom.domain.User;
 import org.proffart.babyroom.service.RelationService;
 import org.proffart.babyroom.service.UserServiceImpl;
@@ -26,15 +26,14 @@ public class RelationController {
     @RequestMapping(value = RequestMappings.ADD_FRIEND, method = RequestMethod.POST)
     ResponseEntity addFriend (@RequestParam(value = "friendId") long friendId) {
         // Getting user from session.
-        User friendRequester = UserServiceImpl.getUser();
-        //User friendRequester = new User();
-        //friendRequester.setId(1l);
+        //User relationRequester = UserServiceImpl.getUser();
+        User friendRequester = new User();
+        friendRequester.setId(1l);
         User friendReceiver = new User();
         friendReceiver.setId(friendId);
-        Friendship friendship = new Friendship();
-        friendship.setFriendReceiver(friendReceiver);
-        friendship.setFriendRequester(friendRequester);
-        friendship.setStatus("WAITING");
+        Relationship friendship = new Relationship();
+        friendship.setRelationReceiver(friendReceiver);
+        friendship.setRelationRequester(friendRequester);
         friendship.setTimeStamp(new java.util.Date());
         relationService.addFriend(friendship);
         return null;
