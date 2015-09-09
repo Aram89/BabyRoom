@@ -194,7 +194,7 @@ CREATE TABLE `friendship`(
   `status` char(255) NOT NULL,
   `timeStamp` datetime NOT NULL,
   PRIMARY KEY (`userId`,`friendId`),
-  CONSTRAINT `frienId` FOREIGN KEY (`friendId`) REFERENCES `user` (`userId`)
+  CONSTRAINT `friendId` FOREIGN KEY (`friendId`) REFERENCES `user` (`userId`)
   ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
   ON DELETE NO ACTION ON UPDATE NO ACTION ) ENGINE=InnoDB DEFAULT CHARSET=utf8
