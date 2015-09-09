@@ -26,9 +26,9 @@ public class RelationController {
     @RequestMapping(value = RequestMappings.ADD_FRIEND, method = RequestMethod.POST)
     ResponseEntity addFriend (@RequestParam(value = "friendId") long friendId) {
         // Getting user from session.
-        //User friendRequester = UserServiceImpl.getUser();
-        User friendRequester = new User();
-        friendRequester.setId(7l);
+        User friendRequester = UserServiceImpl.getUser();
+        //User friendRequester = new User();
+        //friendRequester.setId(1l);
         User friendReceiver = new User();
         friendReceiver.setId(friendId);
         Friendship friendship = new Friendship();
