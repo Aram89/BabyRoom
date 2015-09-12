@@ -25,10 +25,11 @@
                     <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
                 </td>
                 <td nowrap>
-                    <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()"
+                    <!--button type="button" class="btn btn-success btn-xs" ng-click="item.upload()"
                             ng-disabled="item.isReady || item.isUploading || item.isSuccess">
                         <span class="glyphicon glyphicon-upload"></span> Upload
-                    </button>
+                    </button-->
+                    <span><strong>{{item.file.name}}</strong></span>
                     <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()"
                             ng-disabled="!item.isUploading">
                         <span class="glyphicon glyphicon-ban-circle"></span> Cancel
@@ -43,7 +44,7 @@
         </table>
         <div>
             <md-input-container>
-                <input ng-model="post.status" />
+                <input ng-model="post.content" />
             </md-input-container>
         </div>
         <div>

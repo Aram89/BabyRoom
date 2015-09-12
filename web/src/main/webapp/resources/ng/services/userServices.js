@@ -35,6 +35,13 @@ app.service('userServices', ['serverConnector', function(serverConnector) {
             url:'http://localhost:8080/create-post',
             data:data
         })
+    };
+
+    this.sendFrinedRequest = function(data){
+        return serverConnector.send({
+            url:'http://localhost:8080/add-friend',
+            data:data
+        })
     }
 
 }]);

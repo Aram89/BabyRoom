@@ -1,0 +1,38 @@
+<div ng-switch="type">
+    <div ng-switch-when="friend">
+        <md-menu>
+            <md-button>Friend</md-button>
+            <md-menu-content>
+                blah blah
+            </md-menu-content>
+        </md-menu>
+    </div>
+    <div ng-switch-when="follower">
+        <md-menu>
+            <md-button>Following</md-button>
+            <md-menu-content>
+                <md-button>Unfollow</md-button>
+
+            </md-menu-content>
+        </md-menu>
+    </div>
+    <div ng-switch-when="waiting">
+        <md-menu>
+            <md-button>Friend Request sent</md-button>
+            <md-menu-content>
+                blah blah
+            </md-menu-content>
+        </md-menu>
+    </div>
+    <div ng-switch-default>
+        <md-menu>
+            <md-button ng-click="$mdOpenMenu()">Contact</md-button>
+            <md-menu-content>
+                <md-menu-item>
+                    <md-button ng-if="">Send Friend  Request</md-button>
+                    <md-button>Follow</md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</div>

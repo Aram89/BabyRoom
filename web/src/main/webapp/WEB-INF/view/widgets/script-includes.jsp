@@ -20,6 +20,7 @@
 
 <!-- directives -->
 <script src="/resources/ng/directives.js"></script>
+<script src="/resources/ng/directives/relationship.js"></script>
 
 <!-- factory -->
 <script src="/resources/ng/factory/serverConnector.js"></script>

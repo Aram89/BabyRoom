@@ -7,7 +7,7 @@ app.directive('timeLineItem', [function () {
         link: function (scope, elem, attr) {
         }
     }
-}])
+}]);
 
 app.directive('post', ['fileUploadService', 'userServices', function (fileUploadService, userServices) {
     var ctrl = function ($scope) {
@@ -15,13 +15,12 @@ app.directive('post', ['fileUploadService', 'userServices', function (fileUpload
         var uploader;
         $scope.events = [
             "",
-            "event1",
-            "event2",
-            "event3",
-            "event4"
+            "BIRTHDAY",
+            "FIRST_STEPS"
         ];
         $scope.post={
-            status:'lkshdfk',
+            content:'lkshdfk',
+            status:null,
             postType:'',
             fileIds:uploadsList,
             event:''
@@ -47,7 +46,7 @@ app.directive('post', ['fileUploadService', 'userServices', function (fileUpload
                 },
                 fn: function (item /*{File|FileLikeObject}*/, options) {
                     var ext = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
-                    var type = item.type.slice(0,item.type.lastIndexOf('/'));
+                    ///var type = item.type.slice(0,item.type.lastIndexOf('/'));
                     return '|jpg|png|jpeg|bmp|gif|mp4|'.indexOf(ext) !== -1;
                 }
             });
@@ -119,4 +118,4 @@ app.directive('post', ['fileUploadService', 'userServices', function (fileUpload
 
         }
     }
-}])
+}]);
