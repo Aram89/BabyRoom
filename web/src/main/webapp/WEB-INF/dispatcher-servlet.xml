@@ -19,7 +19,7 @@
     <context:property-placeholder location="WEB-INF/jdbc.properties"/>
     <context:component-scan base-package="org.proffart.babyroom.Exception"/>
 
-
+    <import resource="classpath*:spring-config.xml" />
 
     <!--<mvc:interceptors>-->
         <!--<mvc:interceptor>-->
@@ -30,6 +30,11 @@
             <!--<bean class="org.proffart.babyroom.controller.Interceptor"/>-->
         <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
+
+    <bean id="redisPublisher"
+          class="org.proffart.babyroom.redis.RedisPublisher">
+    </bean>
+
 
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
