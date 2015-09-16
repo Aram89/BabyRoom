@@ -8,6 +8,7 @@
     <modules>
         <module>analytics</module>
         <module>web</module>
+        <module>babyroom-nodejs-connector</module>
     </modules>
     <name>BabyRoom Maven Webapp</name>
     <url>http://maven.apache.org</url>
