@@ -15,6 +15,7 @@ public interface RequestMappings {
     String CREATE_CHILDREN = "/create-children";
     String CHECK_EMAIL = "/check-email";
     String LOGIN = "/login";
+    String GET_ID = "get-id";
 
     // Posts
     String CREATE_POST = "/create-post";

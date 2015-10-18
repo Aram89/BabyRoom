@@ -5,6 +5,7 @@ import org.proffart.babyroom.Exception.*;
 import org.proffart.babyroom.Exception.Error;
 import org.proffart.babyroom.domain.users.*;
 import org.proffart.babyroom.service.UserService;
+import org.proffart.babyroom.service.UserServiceImpl;
 import org.proffart.babyroom.utils.RequestMappings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -126,5 +127,10 @@ public class UserController {
         userService.createChild(child);
         userService.updateParentInSession(child.getParentId());
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = RequestMappings.GET_ID, method = RequestMethod.GET)
+    public ResponseEntity getId() {
+        return new ResponseEntity(UserServiceImpl.getUser().getId(), HttpStatus.OK);
     }
 }
