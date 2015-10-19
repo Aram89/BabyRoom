@@ -1,5 +1,7 @@
 package org.proffart.babyroom.data;
 
+import java.util.List;
+
 /**
  * Class for notification representation.
  *
@@ -8,15 +10,30 @@ package org.proffart.babyroom.data;
  */
 public class Notification {
 
-    // Notification sender id.
-    private long senderId;
-
-    // Notification receiver id.
-    private long receiverId;
+    // Notification receivers list.
+    private List<Long> receiversIds;
 
     // Notification type.
     private String type;
 
+    // Notification content.
+    private String content;
+
+    public List<Long> getReceiversIds() {
+        return receiversIds;
+    }
+
+    public void setReceiversIds(List<Long> receiversIds) {
+        this.receiversIds = receiversIds;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public String getType() {
         return type;
@@ -26,20 +43,5 @@ public class Notification {
         this.type = type;
     }
 
-    public long getSenderId() {
-        return senderId;
-    }
-
-    public void setSenderId(long senderId) {
-        this.senderId = senderId;
-    }
-
-    public long getReceiverId() {
-        return receiverId;
-    }
-
-    public void setReceiverId(long receiverId) {
-        this.receiverId = receiverId;
-    }
 
 }
