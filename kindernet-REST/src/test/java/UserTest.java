@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -18,20 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
  *
  * @author Aram Kirakosyan.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@WebAppConfiguration
-@ContextConfiguration("classpath:test-servlet.xml")
-public class UserTest {
-
-    @Autowired
-    private WebApplicationContext wac;
-
-    private MockMvc mockMvc;
-
-    @Before
-    public void setup() {
-       this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-    }
+public class UserTest extends BaseTest{
 
     /**
      * Test for {@link org.proffart.kindernet.controller.UserController#checkEmail}.
@@ -41,7 +29,7 @@ public class UserTest {
      */
     @Test
     public void checkEmail() throws Exception {
-        this.mockMvc.perform(get("/user/check-email?email=test")
+        mockMvc.perform(get("/user/check-email?email=test")
                 .accept(MediaType.parseMediaType("application/json;charset=UTF-8")))
                 .andExpect(status().isOk());
     }

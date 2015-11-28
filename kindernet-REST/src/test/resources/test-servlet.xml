@@ -13,9 +13,9 @@
                            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
     <context:component-scan base-package="org.proffart.kindernet.controller"/>
-    <context:component-scan base-package="org.proffart.kindernet.dao"/>
+    <context:component-scan base-package="${dao_layer}"/>
+    <context:component-scan base-package="${service_layer}"/>
 
-    <context:component-scan base-package="org.proffart.kindernet.service"/>
     <context:property-placeholder location="classpath:jdbc.properties"/>
     <context:component-scan base-package="org.proffart.kindernet.Exception"/>
 
